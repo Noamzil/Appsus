@@ -1,20 +1,11 @@
-import homePageAppsus from './pages/appsus-home-page.cmp.js'
+import homePage from './pages/appsus-home-page.cmp.js';
+
+
 const routes = [
     {
         path: '/',
-        component: homePageAppsus
+        component: homePage
     },
-    // {
-    //     path: '/book',
-    //     component: bookApp
-    // },
-    // {
-    //     path: '/book/:bookId?',
-    //     component: bookDetails
-    // },
-    // {
-    //     path: '/about',
-    //     component: aboutPage
-    // }, 
-]
-export const router = new VueRouter({routes})
+];
+
+export const router = new VueRouter({ routes });

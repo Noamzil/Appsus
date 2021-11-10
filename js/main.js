@@ -11,8 +11,8 @@ const options = {
     </section>
     `,
     components: {
-        appHeader,
-        appFooter,
+        // appHeader,
+        // appFooter,
         // userMsg
     }
 }
