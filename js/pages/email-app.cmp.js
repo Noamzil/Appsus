@@ -50,6 +50,9 @@ export default {
             if (!this.filterBy.title && !this.filterBy.read) return this.emails
             if (this.filterBy.title) var searchStr = this.filterBy.title.toLowerCase();
             const emailsToShow = this.emails.filter(email => {
+                console.log(this.emails);
+                console.log(email.isRead)
+                console.log(this.filterBy.isRead)
                 return email.subject.toLowerCase().includes(searchStr) && email.isRead+'' == this.filterBy.read
             });
             return emailsToShow;
