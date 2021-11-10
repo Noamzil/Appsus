@@ -5,10 +5,9 @@ export default {
   name: `note-page`,
   template: `
         <section class="note-page">
-            <h1>note</h1>
-            <input type="text" placeholder="What's on your mind...">
+            <h1>Notes</h1>
+            <input type="text" placeholder="What's on your mind..">
             <note-list :notes="notesToShow"/>
-            <h1>{{notes}}</h1>
         </section>
     `,
   data() {
