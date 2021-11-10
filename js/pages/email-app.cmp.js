@@ -8,8 +8,8 @@ export default {
     template: `
         <section v-if="emails" class="email-page">
             <email-filter @filtered="setFilter"/>
-            <email-folders-list @type="setType" />
-            <email-list :emails="emailsToShow"/>
+            <email-folders-list @type="setType" :unread="unreadEmails"/>
+            <email-list :emails="emailsToShow" @delete="deleteEmail"/>
 
         </section>
     `,
@@ -19,10 +19,9 @@ export default {
             filterBy: {
                 title: null,
                 read: null,
-                type: 'inbox' //maybe use this instead
             },
             folders: null,
-            typeSelected: 'sent'
+            typeSelected: 'inbox'
         }
     },
     components: {
@@ -53,11 +52,24 @@ export default {
         },
         emailsByType() {
             if (this.typeSelected === 'inbox') this.emails = this.folders.inbox
-            else if (this.typeSelected === 'trash') this.emails = this.folders.sent
+            else if (this.typeSelected === 'sent') this.emails = this.folders.sent
+            else this.emails = []
         },
         setType(type) {
             this.typeSelected = type
-        }
+            this.emailsByType()
+        },
+        deleteEmail() {
+            console.log('im');
+            emailService.remove(id)
+            .then(() => {
+              this.emails = this.emails.filter(email => email.id !== id);
+            })
+            .catch((err) => {
+              console.log('err', err);
+            });
+        },
+
     },
     computed: {
         emailsToShow() {
@@ -79,7 +91,14 @@ export default {
                 });
             }
             return emailsToShow;
+        },
+        unreadEmails() {
+            const unreadEmails = this.emails.filter(email => {
+                return !email.isRead 
+            })
+           return unreadEmails.length
         }
+        
     }
 }
 

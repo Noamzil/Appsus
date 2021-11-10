@@ -20,4 +20,6 @@
 }
 .email-folders-list p {
     cursor: pointer;
+    font-size: larger;
+    font-weight: bold;
 }

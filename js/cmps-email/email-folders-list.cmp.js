@@ -1,25 +1,39 @@
 export default {
+    props:['unread'],
     template: `
         <section class="email-folders-list">
             <button class="new-mail"> New Mail</button>
-            <ul>
-                <li @click="getType"> Inbox</li>    
-                <li>sent</li>    
-                <p>trash</p>    
-                <p>draft</p>    
-            </ul>
+                <p @click="changeTxt('inbox')"> Inbox ({{unread}})</p>
+                <p @click="changeTxt('sent')">Sent</p>    
+                <p @click="changeTxt('trash')">Trash</p>    
+                <p @click="changeTxt('draft')">Draft</p>    
         </section>
     `,
     data() {
-       return {
-        type: 'inbox'
-       }
+        return {
+            type: 'inbox'
+        }
     },
     methods: {
-        getType(val) {
-            console.log(val);
-            this.type = val 
+        changeTxt(val) {
+            switch (val) {
+                case 'inbox':
+                    this.type = 'inbox';
+                    break;
+                case 'sent':
+                    this.type = 'sent';
+                    break;
+                case `trash`:
+                    this.type = `trash`;
+                    break;
+                case `draft`:
+                    this.type = `draft`;
+                    break;
+            }
+            this.$emit('type', this.type)
+        },
+        setType() {
+            this.$emit('type', { ...this.type })
         }
-        }
-        //     this.$emit('type', { ...this.filterBy });
+    }
 }

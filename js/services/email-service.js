@@ -1,7 +1,7 @@
 import { utilService } from "./util-service.js"
 import { storageService } from './async-storage-service.js';
 
-var gEmails = [
+var emails = [
     {
         id: 'e101',
         subject: 'Miss you!',
@@ -9,7 +9,7 @@ var gEmails = [
         isRead: true,
         sentAt: 1551133930594,
         to: 'momo@momo.com',
-        from: 'lala@lolo.com',
+        from: 'momo@momo.com',
         isSelected: false
     },
     {
@@ -74,7 +74,12 @@ var gEmails = [
     },
 ]
 
-utilService.saveToStorage('emails', gEmails)
+const loggedinUser = {
+    email: 'momo@momo.com',
+    fullname: 'Mahatma Appsus'
+}
+
+utilService.saveToStorage('emails', emails)
 const KEY = 'email'
 
 export const emailService = {
@@ -82,7 +87,8 @@ export const emailService = {
     remove,
     save,
     getById,
-    getNextemailId
+    getNextemailId,
+    getEmailType,
 }
 
 function query(filterBy = {}) {
@@ -111,6 +117,13 @@ function getNextemailId(emailId) {
             return (idx === emails.length - 1) ? emails[0].id : emails[idx + 1].id;
         });
 }
-
-
+function getEmailType(emails) {
+    var inbox = emails.filter(email => {
+        return email.to === loggedinUser.email
+    })
+    var sent = emails.filter(email => {
+        return email.from === loggedinUser.email
+    })
+    return {inbox,sent}
+}
 
