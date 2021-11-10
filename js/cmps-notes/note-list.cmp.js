@@ -11,7 +11,7 @@ export default {
       <ul class="notes-list">
         <li v-for="note in notes" :key="note.id" class="note-container">
             <component :is="note.type" :note="note"/> </component>
-            <div class="note-icons"><i class="fas fa-thumbtack"></i></div>
+            <div class="note-icons"><i class="fas fa-thumbtack"></i><i class="fas fa-palette"></i><i class="fas fa-envelope"></i><i class="far fa-edit"></i><i class="fas fa-trash-alt"></i></div>
         </li>
       </ul>
     </section>
