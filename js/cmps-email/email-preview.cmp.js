@@ -11,7 +11,7 @@ export default {
             <h3>{{email.subject}} </h3>
             <p>{{email.body}} </p>
             <div class="email-actions">
-                <p @click="deleteEmail()">🗑️</p>
+                <p @click="deleteEmail">🗑️</p>
                 <p @click="changeReadingStatus">{{readingStatus}}</p>
             </div>
         </section>

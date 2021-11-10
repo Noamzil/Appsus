@@ -59,8 +59,7 @@ export default {
             this.typeSelected = type
             this.emailsByType()
         },
-        deleteEmail() {
-            console.log('im');
+        deleteEmail(id) {
             emailService.remove(id)
             .then(() => {
               this.emails = this.emails.filter(email => email.id !== id);

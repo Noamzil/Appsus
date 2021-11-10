@@ -80,7 +80,7 @@ const loggedinUser = {
 }
 
 utilService.saveToStorage('emails', emails)
-const KEY = 'email'
+const KEY = 'emails'
 
 export const emailService = {
     query,
