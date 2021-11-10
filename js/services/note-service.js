@@ -20,6 +20,7 @@ function query() {
 }
 
 function remove(noteId) {
+  console.log(`in note`);
   return storageService.remove(NOTES_KEY, noteId);
 }
 
@@ -58,13 +59,13 @@ function _nextId() {
 }
 const notes = [
   {
-    id: 'n101',
+    id: _nextId(),
     type: 'note-txt',
     isPinned: true,
     info: { txt: 'Fullstack Me Baby!' },
   },
   {
-    id: 'n102',
+    id: _nextId(),
     type: 'note-img',
     info: {
       url: 'https://dogtime.com/assets/uploads/2011/03/puppy-development.jpg',
@@ -73,7 +74,7 @@ const notes = [
     style: { backgroundColor: '#00d' },
   },
   {
-    id: 'n103',
+    id: _nextId(),
     type: 'note-todos',
     info: {
       label: 'Get my stuff together',
@@ -84,7 +85,7 @@ const notes = [
     },
   },
   {
-    id: 'n104',
+    id: _nextId(),
     type: 'note-video',
     info: {
       url: 'https://www.w3schools.com/html/mov_bbb.mp4',

@@ -1,15 +1,12 @@
 export default {
-    props: ['note'],
-    template: `
+  props: ['note'],
+  template: `
           <div class="note-text">
-              <h3>{{note.type}} </h3>
-              <h3>{{note.isPinned}} </h3>
-              <p>{{note.info.txt}} </p>
+              <h3>{{note.info.txt}}</h3>
           </div>
       `,
-    data() {
-      return {};
-    },
-    computed: {},
-  };
-  
+  data() {
+    return {};
+  },
+  computed: {},
+};

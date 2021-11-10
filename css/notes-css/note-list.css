@@ -27,10 +27,36 @@ p {
 .notes-list li {
   background-color: rgb(215, 240, 204);
   list-style: none;
-  /* max-width: 300px; */
+}
+
+.notes-list ul {
+  padding: 0;
 }
 
 .fas {
   width: 30px;
   height: 20px;
+}
+
+.note-input {
+  width: 500px;
+  height: 40px;
+}
+
+.input-icons {
+  position: absolute;
+  left: 680px;
+  margin-top: 8px;
+  font-size: 1.5rem;
+}
+.input-icons i {
+  margin-right: 20px;
+}
+
+i:hover {
+  cursor: pointer;
+}
+
+.note-description-container{
+  margin: 15px;
 }
