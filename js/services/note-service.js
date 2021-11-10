@@ -66,7 +66,10 @@ const notes = [
   {
     id: 'n102',
     type: 'note-img',
-    info: { url: 'http://some-img/me', title: 'Bobi and Me' },
+    info: {
+      url: 'https://dogtime.com/assets/uploads/2011/03/puppy-development.jpg',
+      title: 'Bobi and Me',
+    },
     style: { backgroundColor: '#00d' },
   },
   {
@@ -79,6 +82,15 @@ const notes = [
         { txt: 'Coding power', doneAt: 187111111 },
       ],
     },
+  },
+  {
+    id: 'n104',
+    type: 'note-video',
+    info: {
+      url: 'https://www.w3schools.com/html/mov_bbb.mp4',
+      title: 'Try video',
+    },
+    style: { backgroundColor: '#00d' },
   },
 ];
 

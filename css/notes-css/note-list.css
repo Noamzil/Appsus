@@ -29,3 +29,8 @@ p {
   list-style: none;
   /* max-width: 300px; */
 }
+
+.fas {
+  width: 30px;
+  height: 20px;
+}
