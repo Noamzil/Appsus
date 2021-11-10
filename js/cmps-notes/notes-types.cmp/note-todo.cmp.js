@@ -1,10 +1,11 @@
 import todoPreview from './todo-preview.cmp.js';
 
+
 export default {
   props: ['note'],
   template: `
           <div class="note-todo">
-              <h3>{{note.info.label}} </h3>
+              <h3>{{note.info.title}} </h3>
               <ul v-if="todos" class="todo-list">
                 <li v-for="todo in todos">
                   <todo-preview :todo="todo"/>

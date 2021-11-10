@@ -16,7 +16,7 @@ export default {
               <i @click="pinNote(note.id)" title="pin note" class="fas fa-thumbtack"></i>
               <i @click="changeNoteColor(note)" title="change color" class="fas fa-palette"></i>
               <i @click="sendAsEmail(note)" title="send as email" class="fas fa-envelope"></i>
-              <i @click="editNote(note)" title="edit note" class="far fa-edit"></i>
+              <router-link :to="'/note/'+note.id + '/edit'" ><i title="edit note" class="far fa-edit"></i></router-link>
               <i @click="deleteNote(note.id)" title="delete note" class="fas fa-trash-alt"></i>
             </div>
         </li>
@@ -34,10 +34,6 @@ export default {
     sendAsEmail(note) {
       console.log(note);
       console.log(` note sent as email`);
-    },
-    editNote(note) {
-      console.log(note);
-      console.log(` edit..`);
     },
     deleteNote(noteId) {
       this.$emit('delete', noteId);
