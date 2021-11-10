@@ -1,4 +1,7 @@
-import notePreview from './note-preview.cmp.js';
+import noteTxt from './notes-types.cmp/note-text.cmp.js';
+import noteImg from './notes-types.cmp/note-img.cmp.js';
+import noteTodos from './notes-types.cmp/note-todo.cmp.js';
+import noteVideo from './notes-types.cmp/note-video.cmp.js';
 
 export default {
   name: `note-list`,
@@ -7,13 +10,17 @@ export default {
     <section class="notes-list-container">
       <ul class="notes-list">
         <li v-for="note in notes" :key="note.id" class="note-container">
-            <note-preview :note="note"/>
+            <component :is="note.type" :note="note"/> </component>
+            <div class="note-icons"><i class="fas fa-thumbtack"></i></div>
         </li>
       </ul>
     </section>
     `,
   created() {},
   components: {
-    notePreview,
+    noteTxt,
+    noteImg,
+    noteTodos,
+    noteVideo,
   },
 };
