@@ -6,19 +6,21 @@ var gEmails = [
         id: 'e101',
         subject: 'Miss you!',
         body: 'Would love to catch up sometimes',
-        isRead: false,
+        isRead: true,
         sentAt: 1551133930594,
         to: 'momo@momo.com',
-        from: 'lala@lolo.com'
+        from: 'lala@lolo.com',
+        isSelected: false
     },
     {
         id: 'e102',
         subject: 'Hello!',
         body: 'Would love to catch up sometimes',
-        isRead: false,
+        isRead: true,
         sentAt: 1551133930594,
         to: 'momo@momo.com',
-        from: 'lala@lolo.com'
+        from: 'lala@lolo.com',
+        isSelected: false
     },
     {
         id: 'e103',
@@ -27,16 +29,18 @@ var gEmails = [
         isRead: false,
         sentAt: 1551133930594,
         to: 'momo@momo.com',
-        from: 'lala@lolo.com'
+        from: 'lala@lolo.com',
+        isSelected: false
     },
     {
         id: 'e104',
         subject: 'bkabka',
         body: 'Would love to catch up sometimes',
-        isRead: false,
+        isRead: true,
         sentAt: 1551133930594,
         to: 'momo@momo.com',
-        from: 'lala@lolo.com'
+        from: 'lala@lolo.com',
+        isSelected: false
     },
     {
         id: 'e105',
@@ -45,7 +49,8 @@ var gEmails = [
         isRead: false,
         sentAt: 1551133930594,
         to: 'momo@momo.com',
-        from: 'lala@lolo.com'
+        from: 'lala@lolo.com',
+        isSelected: false
     },
     {
         id: 'e106',
@@ -54,7 +59,8 @@ var gEmails = [
         isRead: false,
         sentAt: 1551133930594,
         to: 'momo@momo.com',
-        from: 'lala@lolo.com'
+        from: 'lala@lolo.com',
+        isSelected: false
     },
     {
         id: 'e107',
@@ -63,7 +69,8 @@ var gEmails = [
         isRead: false,
         sentAt: 1551133930594,
         to: 'momo@momo.com',
-        from: 'lala@lolo.com'
+        from: 'lala@lolo.com',
+        isSelected: false
     },
 ]
 

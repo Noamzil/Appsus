@@ -1,14 +1,32 @@
 .emails-list {
     padding: 0;
     margin: 0;
+    margin-left: 190px;
 }
 .emails-list li {
-    /* display: flex; */
+    display: flex;
     background-color: rgb(204, 240, 240);
     list-style: none;
-    padding: 0;
+    padding: 10px;
     margin: 0;
+    border: black solid 1px;
+    justify-content: space-between;
 }
 .sender-img {
     height: 50px;
+}
+.email-preview {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+.email-sender {
+    display: flex;
+    gap: 10px;
+}
+.email-actions {
+    display: flex;
+    gap: 10px;
+    cursor: pointer;
+    font-size:larger;
 }
