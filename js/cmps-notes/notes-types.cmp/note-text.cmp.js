@@ -2,7 +2,8 @@ export default {
   props: ['note'],
   template: `
           <div class="note-text">
-              <h3>{{note.info.txt}}</h3>
+            <h2>{{note.info.title}}</h2>
+            <h4>{{note.info.txt}}</h4>
           </div>
       `,
   data() {

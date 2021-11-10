@@ -15,6 +15,16 @@ export default {
           </div>
           <input class="note-input" type="text" :placeholder="inputMsg">
         </div>
+        <div class="filter-container">
+          <h1>filter</h1>
+        <div class="input-icons">
+              <i @click="changeInput('txt')" class="far fa-comment"></i>
+              <i @click="changeInput('image')" class="far fa-image"></i>
+              <i @click="changeInput('video')" class="fab fa-youtube"></i>
+              <i @click="changeInput('todo')" class="fas fa-list-ul"></i>
+          </div>
+          <input class="note-input" type="text" :placeholder="inputMsg">
+          </div>
         <note-list @delete="deleteNote" :notes="notesToShow"/>
     </section>
     `,

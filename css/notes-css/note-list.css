@@ -17,7 +17,7 @@ p {
   margin: 0;
 }
 
-a{
+a {
   color: black;
 }
 
@@ -29,7 +29,6 @@ a{
 }
 
 .notes-list li {
-  background-color: rgb(215, 240, 204);
   list-style: none;
 }
 
@@ -61,6 +60,35 @@ i:hover {
   cursor: pointer;
 }
 
-.note-description-container{
+.note-description-container {
   margin: 15px;
+}
+
+.font-color {
+  z-index: 10;
+  cursor: pointer;
+  width: 30px;
+  height: 20px;
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.fa-palette {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.font-col-container {
+  position: relative;
+  display: inline;
+}
+
+.note-todo ul,li,p,i{
+  background: transparent;
+}
+
+.note-container{
+  border: 5px solid black;
 }

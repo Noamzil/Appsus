@@ -6,6 +6,7 @@ export default {
         <video width="320" height="240" controls>
           <source :src="note.info.url" type="video/mp4">
         </video>
+        <p>{{note.info.txt}} </p>
     </div>
         `,
   data() {

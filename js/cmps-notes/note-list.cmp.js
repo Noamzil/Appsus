@@ -14,7 +14,10 @@ export default {
             <component class="note-description-container" :is="note.type" :note="note"/> </component>
             <div class="note-icons">
               <i @click="pinNote(note.id)" title="pin note" class="fas fa-thumbtack"></i>
-              <i @click="changeNoteColor(note)" title="change color" class="fas fa-palette"></i>
+              <div class="font-col-container">
+                <input v-model="note.style.backgroundColor" class="font-color" @input="changeNoteColor($event,note)" type="color"/>
+                <i class="fas fa-palette"></i>
+              </div>
               <i @click="sendAsEmail(note)" title="send as email" class="fas fa-envelope"></i>
               <router-link :to="'/note/'+note.id + '/edit'" ><i title="edit note" class="far fa-edit"></i></router-link>
               <i @click="deleteNote(note.id)" title="delete note" class="fas fa-trash-alt"></i>
@@ -23,13 +26,24 @@ export default {
       </ul>
     </section>
     `,
-  created() {},
+  created() {
+    noteService.query().then((notes) => {
+      notes.forEach((note) => {
+        // console.log(note.style.backgroundColor);
+        // // ev.path[3].style.backgroundColor = note.style.backgroundColor;
+      });
+    });
+  },
   methods: {
     pinNote(noteId) {
       console.log(`pinned this note`, noteId);
     },
-    changeNoteColor(note) {
-      console.log(`${note.style.backgroundColor} note color pre change`);
+    changeNoteColor(ev, note) {
+      ev.path[3].style.backgroundColor = note.style.backgroundColor;
+      noteService.getById(note.id).then((currNote) => {
+        currNote.style.backgroundColor = note.style.backgroundColor;
+        // console.log(currNote.style.backgroundColor);
+      });
     },
     sendAsEmail(note) {
       console.log(note);
