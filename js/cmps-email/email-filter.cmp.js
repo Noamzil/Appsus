@@ -6,7 +6,7 @@ export default {
             </div>
             <div class="email-topbar">
                 <select v-model="filterBy.read" @change="filter">
-                    <option value="all">All</option>
+                    <option value="">All</option>
                     <option value="true">Read</option>
                     <option value="false">Unread</option>
                 </select>

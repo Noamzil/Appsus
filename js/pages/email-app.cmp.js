@@ -8,8 +8,8 @@ export default {
     template: `
         <section v-if="emails" class="email-page">
             <email-filter @filtered="setFilter"/>
-            <email-folders-list />
-            <email-list :emails="emailsToShow"/>
+            <email-folders-list @type="setType" :unread="unreadEmails"/>
+            <email-list :emails="emailsToShow" @delete="deleteEmail"/>
 
         </section>
     `,
@@ -19,8 +19,9 @@ export default {
             filterBy: {
                 title: null,
                 read: null,
-                type: 'inbox'
             },
+            folders: null,
+            typeSelected: 'inbox'
         }
     },
     components: {
@@ -30,6 +31,8 @@ export default {
     },
     created() {
         this.loadEmails()
+        this.setFolders()
+        this.emailsByType()
     },
     methods: {
         loadEmails() {
@@ -44,18 +47,58 @@ export default {
             this.filterBy.title = filterBy.title;
             this.filterBy.read = filterBy.read;
         },
+        setFolders() {
+            this.folders = emailService.getEmailType(this.emails)
+        },
+        emailsByType() {
+            if (this.typeSelected === 'inbox') this.emails = this.folders.inbox
+            else if (this.typeSelected === 'sent') this.emails = this.folders.sent
+            else this.emails = []
+        },
+        setType(type) {
+            this.typeSelected = type
+            this.emailsByType()
+        },
+        deleteEmail() {
+            console.log('im');
+            emailService.remove(id)
+            .then(() => {
+              this.emails = this.emails.filter(email => email.id !== id);
+            })
+            .catch((err) => {
+              console.log('err', err);
+            });
+        },
+
     },
     computed: {
         emailsToShow() {
             if (!this.filterBy.title && !this.filterBy.read) return this.emails
             if (this.filterBy.title) var searchStr = this.filterBy.title.toLowerCase();
-            const emailsToShow = this.emails.filter(email => {
-                console.log(this.emails);
-                console.log(email.isRead)
-                console.log(this.filterBy.isRead)
-                return email.subject.toLowerCase().includes(searchStr) && email.isRead+'' == this.filterBy.read
+            var emailsToShow = this.emails.filter(email => {
+                return email.subject.toLowerCase().includes(searchStr)
             });
+            if (this.filterBy.read && this.filterBy.title) {
+                console.log('im here');
+                var emailsToShow = this.emails.filter(email => {
+                    return email.subject.toLowerCase().includes(searchStr) && email.isRead + '' == this.filterBy.read
+                });
+            }
+            if (this.filterBy.read) {
+                console.log('im hereee');
+                var emailsToShow = this.emails.filter(email => {
+                    return email.isRead + '' == this.filterBy.read
+                });
+            }
             return emailsToShow;
+        },
+        unreadEmails() {
+            const unreadEmails = this.emails.filter(email => {
+                return !email.isRead 
+            })
+           return unreadEmails.length
         }
+        
     }
 }
+

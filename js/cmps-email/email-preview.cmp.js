@@ -1,5 +1,6 @@
 export default {
     props: ['email'],
+    name: 'email-preview',
     template: `
         <section class="email-preview">
             <input type="checkbox">
@@ -10,14 +11,15 @@ export default {
             <h3>{{email.subject}} </h3>
             <p>{{email.body}} </p>
             <div class="email-actions">
-                <p>🗑️</p>
+                <p @click="deleteEmail()">🗑️</p>
                 <p @click="changeReadingStatus">{{readingStatus}}</p>
             </div>
         </section>
     `,
     data() {
         return {
-            sender: null
+            sender: null,
+            // emailsPrev: 
         }
     },
     computed: {
@@ -25,12 +27,18 @@ export default {
             return this.email.from.split('@')[0]
         },
         readingStatus() {
-            return (this.email.isRead)? '📨' :'✉️'
+            return (this.email.isRead) ? '📨' : '✉️'
+        },
+        NewEmails() {
+            emailsPrev = this.emails.split
         }
     },
     methods: {
         changeReadingStatus() {
             this.email.isRead = !this.email.isRead
-        }
+        },
+        deleteEmail() {
+            this.$emit('delete', this.email.id)
+        },
     }
 }
