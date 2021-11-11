@@ -2,6 +2,7 @@
 @import url(/css/email-css/email-search.css);
 @import url(/css/app/app-header.css);
 @import url(/css/email-css/new-email.css);
+@import url(/css/email-css/email-details.css);
 
 * {
     box-sizing: border-box;

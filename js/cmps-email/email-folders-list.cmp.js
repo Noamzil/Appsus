@@ -3,7 +3,10 @@ export default {
     props:['unread'],
     template: `
         <section class="email-folders-list">
-            <button class="new-mail" @click="newMail"> New Mail</button>
+            <div class="new-mail" @click="newMail">
+                <img src="/img/email-img/compose.png">
+                <h3> Compose</h3>
+            </div>
                 <p @click="changeTxt('inbox')"> Inbox ({{unread}})</p>
                 <p @click="changeTxt('sent')">Sent</p>    
                 <p @click="changeTxt('trash')">Trash</p>    

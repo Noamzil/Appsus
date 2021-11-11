@@ -1,0 +1,20 @@
+.email-details {
+    text-align: start;
+    max-width: 1000px;
+    margin: auto;
+    border: grey solid 1.5px;
+}
+
+.email-details .subject{
+    background-color: wheat;
+    padding: 10px;
+}
+.email-details .from{
+    background-color: rgb(233, 164, 124);
+    padding: 10px;
+}
+.email-details .body{
+    background-color: rgb(233, 184, 129);
+    padding: 10px;
+    height: 716px;
+}

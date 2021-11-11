@@ -72,6 +72,16 @@ var emails = [
         from: 'lala@lolo.com',
         isSelected: false
     },
+    {
+        id: 'e107',
+        subject: 'Hi there',
+        body: 'Would love to catch up sometimes',
+        isRead: false,
+        sentAt: 1551133930594,
+        to: 'momo@momo.com',
+        from: 'lala@lolo.com',
+        isSelected: false
+    },
 ]
 
 const loggedinUser = {

@@ -5,20 +5,23 @@
     position: fixed; 
     top: 120px; 
     left: 0;
-    background-color: rgb(192, 179, 241); 
-    /* overflow-x: hidden; Disable horizontal scroll */
+    background-color: rgb(255, 255, 255); 
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
 .new-mail {
-    border-radius: 100%;
-    width: 50px;
-    height: 50px;
-    background-color: rgb(234, 167, 247);
+    border-radius: 20px;
+    height: 45px;
+    padding: 10px 15px;
+    background-color: rgb(255, 255, 255);
     cursor: pointer;
     margin: 0 auto;
+    box-shadow: 0 0 6px #b4b4b4;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 .email-folders-list p {
     cursor: pointer;

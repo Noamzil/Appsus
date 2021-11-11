@@ -3,10 +3,10 @@ import { emailService } from '../services/email-service.js';
 export default {
   template: `
         <section class="email-details">
-          <h1>{{email.subject}}</h1>
-          <h3>{{email.from}}</h3>
-          <p>{{email.body}}</p>
-            <p>{{email}}</p>
+          <router-link to="/email">⬅️</router-link>
+          <h1 class="subject">{{email.subject}}</h1>
+          <h3 class="from">{{email.from}}</h3>
+          <p class="body">{{email.body}}</p>
         </section>
     `,
   data() {
