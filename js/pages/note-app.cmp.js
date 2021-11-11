@@ -16,7 +16,7 @@ export default {
           </div>
           <input @keyup.enter ="createNewNote" class="note-input" type="text" :placeholder="inputMsg">
         </div>
-        <note-filter/>
+        <note-filter @filtered="setFilter"/>
         <note-list @delete="deleteNote" :notes="notesToShow"/>
     </section>
     `,
@@ -26,9 +26,9 @@ export default {
       inputMsg: null,
       newNote: null,
       filterBy: {
-        title: null,
-        read: null,
-    },
+        txt: null,
+        type: null,
+      },
     };
   },
   created() {
@@ -37,14 +37,20 @@ export default {
   },
 
   methods: {
+    setFilter(filterBy) {
+      console.log(filterBy);
+      this.filterBy.txt = filterBy.txt;
+      this.filterBy.type = filterBy.type;
+    },
     createNewNote(ev) {
-      var txt = ev.target.value;
-      console.log(txt);
-      this.newNote = noteService.createNote(type, txt, title, url, todos);
+      // var txt = ev.target.value;
+      // console.log(txt);
+      // this.newNote = noteService.createNote(type, txt, title, url, todos);
     },
     loadNotes() {
       noteService.query().then((notes) => {
         this.notes = notes;
+        console.log(this.notes);
       });
     },
     changeInput(val) {
@@ -76,7 +82,29 @@ export default {
   },
   computed: {
     notesToShow() {
-      return this.notes;
+      if (!this.filterBy.txt && !this.filterBy.type) return this.notes;
+      const searchType = this.filterBy.type;
+      var notesToShow = this.notes.filter((note) => {
+        return note.type === searchType;
+      });
+
+      if (this.filterBy.txt) {
+        const searchTxt = this.filterBy.txt.toLowerCase();
+        var notesFilteredByTxt = this.notes.filter((note) => {
+          if (note.info.txt && note.info.title) {
+            return (
+              note.info.txt.toLowerCase().includes(searchTxt) &&
+              note.info.title.toLowerCase().includes(searchTxt)
+            );
+          }
+          if (note.info.txt)
+            return note.info.txt.toLowerCase().includes(searchTxt);
+          if (note.info.title)
+            return note.info.title.toLowerCase().includes(searchTxt);
+        });
+      }
+      if (!notesToShow.length) return notesFilteredByTxt;
+      return notesToShow;
     },
   },
   components: {

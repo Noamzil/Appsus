@@ -10,7 +10,8 @@ export default {
   template: `
     <section class="notes-list-container">
       <ul class="notes-list">
-        <li v-for="note in notes" :key="note.id" class="note-container">
+        <li v-for="note in notes" :key="note.id" >
+        <div class="note-container" :style="{ backgroundColor: note.style.backgroundColor}" >
             <component class="note-description-container" :is="note.type" :note="note"/> </component>
             <div class="note-icons">
               <i @click="pinNote(note.id)" title="pin note" class="fas fa-thumbtack"></i>
@@ -22,18 +23,12 @@ export default {
               <router-link :to="'/note/'+note.id + '/edit'" ><i title="edit note" class="far fa-edit"></i></router-link>
               <i @click="deleteNote(note.id)" title="delete note" class="fas fa-trash-alt"></i>
             </div>
+            </div>
         </li>
       </ul>
     </section>
     `,
-  created() {
-    noteService.query().then((notes) => {
-      notes.forEach((note) => {
-        // console.log(note.style.backgroundColor);
-        // // ev.path[3].style.backgroundColor = note.style.backgroundColor;
-      });
-    });
-  },
+  created() {},
   methods: {
     pinNote(noteId) {
       console.log(`pinned this note`, noteId);
