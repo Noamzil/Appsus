@@ -9,7 +9,7 @@ export default {
                 <nav>
                     <router-link to="/" active-class="active-link" exact>Home</router-link> |
                     <router-link to="/email">Emails</router-link> |
-                    <router-link to="/notes">Keep</router-link> |
+                    <router-link to="/note">Keep</router-link> |
                     <router-link to="/book">Books</router-link> 
                 </nav>
             <!-- </section> -->
