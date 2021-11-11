@@ -56,3 +56,5 @@ export default {
     noteService,
   },
 };
+
+// <i class="far fa-copy"></i>
