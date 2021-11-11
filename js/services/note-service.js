@@ -58,22 +58,22 @@ function _createNotes() {
       createNote(
         "note-txt",
         "Fullstack Me Baby!",
-        undefined,
-        undefined,
-        undefined
+        '',
+        '',
+        ''
       )
     );
     notes.push(
       createNote(
         "note-img",
-        undefined,
+        '',
         "Bobi and Me",
         "https://dogtime.com/assets/uploads/2011/03/puppy-development.jpg",
-        undefined
+        ''
       )
     );
     notes.push(
-      createNote("note-todos", undefined, "Get my stuff together", undefined, [
+      createNote("note-todos", '', "Get my stuff together", '', [
         { txt: "Driving liscence", doneAt: null },
         { txt: "Coding power", doneAt: 187111111 },
       ])
@@ -81,10 +81,10 @@ function _createNotes() {
     notes.push(
       createNote(
         "note-video",
-        undefined,
+        '',
         "Try video",
         "https://www.w3schools.com/html/mov_bbb.mp4",
-        undefined
+        ''
       )
     );
     utilService.saveToStorage(NOTES_KEY, notes);
