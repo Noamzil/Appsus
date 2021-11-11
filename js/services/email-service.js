@@ -5,7 +5,7 @@ var emails = [
     {
         id: 'e101',
         subject: 'Miss you!',
-        body: 'Would love to catch up sometimes',
+        body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda quibusdam repellat iure fugiat non qui consequatur optio cumque. Delectus error natus fugit harum. Neque incidunt iusto atque suscipit et eos',
         isRead: true,
         sentAt: 1551133930594,
         to: 'momo@momo.com',
@@ -15,7 +15,7 @@ var emails = [
     {
         id: 'e102',
         subject: 'Hello!',
-        body: 'Would love to catch up sometimes',
+        body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda quibusdam repellat iure fugiat non qui consequatur optio cumque. Delectus error natus fugit harum. Neque incidunt iusto atque suscipit et eos',
         isRead: true,
         sentAt: 1551133930594,
         to: 'momo@momo.com',
@@ -25,7 +25,8 @@ var emails = [
     {
         id: 'e103',
         subject: 'chcah',
-        body: 'Would love to catch up sometimes',
+        body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda quibusdam repellat iure fugiat non qui consequatur optio cumque. Delectus error natus fugit harum. Neque incidunt iusto atque suscipit et eos',
+
         isRead: false,
         sentAt: 1551133930594,
         to: 'momo@momo.com',
@@ -45,7 +46,8 @@ var emails = [
     {
         id: 'e105',
         subject: 'lalala',
-        body: 'Would love to catch up sometimes',
+        body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda quibusdam repellat iure fugiat non qui consequatur optio cumque. Delectus error natus fugit harum. Neque incidunt iusto atque suscipit et eos',
+
         isRead: false,
         sentAt: 1551133930594,
         to: 'momo@momo.com',
@@ -55,7 +57,7 @@ var emails = [
     {
         id: 'e106',
         subject: 'Call me',
-        body: 'Would love to catch up sometimes',
+        body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda quibusdam repellat iure fugiat non qui consequatur optio cumque. Delectus error natus fugit harum. Neque incidunt iusto atque suscipit et eos',
         isRead: false,
         sentAt: 1551133930594,
         to: 'momo@momo.com',
@@ -65,7 +67,7 @@ var emails = [
     {
         id: 'e107',
         subject: 'Hi there',
-        body: 'Would love to catch up sometimes',
+        body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda quibusdam repellat iure fugiat non qui consequatur optio cumque. Delectus error natus fugit harum. Neque incidunt iusto atque suscipit et eos',
         isRead: false,
         sentAt: 1551133930594,
         to: 'momo@momo.com',
@@ -73,9 +75,9 @@ var emails = [
         isSelected: false
     },
     {
-        id: 'e107',
+        id: 'e108',
         subject: 'Hi there',
-        body: 'Would love to catch up sometimes',
+        body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda quibusdam repellat iure fugiat non qui consequatur optio cumque. Delectus error natus fugit harum. Neque incidunt iusto atque suscipit et eos',
         isRead: false,
         sentAt: 1551133930594,
         to: 'momo@momo.com',
@@ -144,7 +146,7 @@ function getEmptyMail() {
         from: loggedinUser.email,
         to:'',
         subject: '',
-        content: '',
+        body: '',
         sentAt: '',
         isSelected: false
     };

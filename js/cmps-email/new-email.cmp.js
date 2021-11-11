@@ -12,7 +12,7 @@ export default {
                 <input type="text" class="email-to" v-model="newEmail.to">
                 <label>Subject</label>
                 <input type="text" class="email-subject" v-model="newEmail.subject">
-                <textarea class="email-content" v-model="newEmail.content"></textarea>
+                <textarea class="email-content" v-model="newEmail.body"></textarea>
                 <button @click="saveEmail"> Send </button>
             </form>
         </section>
@@ -31,7 +31,7 @@ export default {
         },
         saveEmail() {
             emailService.save(this.newEmail)
-            this.$emit('addEmail', this.newEmail)
+            this.$emit('addEmail')
         }
     }
 }

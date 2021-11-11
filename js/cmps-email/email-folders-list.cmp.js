@@ -1,6 +1,6 @@
 import newEmail from './new-email.cmp.js'
 export default {
-    props:['unread'],
+    props: ['unread'],
     template: `
         <section class="email-folders-list">
             <div class="new-mail" @click="newMail">
@@ -49,8 +49,8 @@ export default {
             this.isNewEmail = !this.isNewEmail
         },
         addEmail() {
-            console.log('im here in folders');
             this.$emit('add')
+            // this.isNewEmail = false
         }
     }
 }

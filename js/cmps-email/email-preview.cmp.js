@@ -2,24 +2,25 @@ export default {
     props: ['email'],
     name: 'email-preview',
     template: `
-        <section class="email-preview">
+        <section class="email-preview" @click="changePreview">
             <input type="checkbox">
             <div class="email-sender">   
                 <img src="/img/email-img/sender.png" class="sender-img">
                 <h3>{{senderName}} </h3>
             </div>
             <h3>{{email.subject}} </h3>
-            <p>{{email.body}} </p>
+            <p v-if="isShortText" class="email-body" :class="prevClass">{{shortText}}</p>
+            <p v-else class="email-body" :class="prevClass">{{longTxt}}</p>
             <div class="email-actions">
                 <p @click="deleteEmail">🗑️</p>
-                <p @click="changeReadingStatus">{{readingStatus}}</p>
+                <p @click="changeReadingStatus"><i class="far fa-envelope"></i></p>
             </div>
         </section>
     `,
     data() {
         return {
-            sender: null,
-            // emailsPrev: 
+            longTxt: this.email.body, 
+            isShortText: true
         }
     },
     computed: {
@@ -31,6 +32,13 @@ export default {
         },
         NewEmails() {
             emailsPrev = this.emails.split
+        },
+        shortText() {
+            if (this.longTxt.split(' ').length < 20) return this.longTxt
+            return this.longTxt.split(' ').slice(0,10).join(' ') + ' ...'
+        },
+        prevClass() {
+            if (this.longTxt.split(' ').length > 20) return 'longTxt'
         }
     },
     methods: {
@@ -40,5 +48,8 @@ export default {
         deleteEmail() {
             this.$emit('delete', this.email.id)
         },
+        changePreview() {
+            this.isShortText = !this.isShortText
+        }
     }
 }
