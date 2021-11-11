@@ -1,19 +1,24 @@
 .app-header {
-    height:120px;
+    height: 120px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: rgb(191, 241, 241);
+    /* border-bottom: grey solid 0.5px; */
+    margin-bottom: 10px;
     padding: 0 40px;
-}
-.logo {
-    margin: 0;
-    color: #083d64;
-    /* display: flex; */
-    align-items: center;
-    justify-content: center;
+    box-shadow: 0 0 1px 0px grey;
 }
 
 .logo-img {
-    height: 100px;
+    height: 200px;
+}
+
+.app-header a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #727272;
+    font-size: 20px;
+}
+.app-header a:hover {
+    color: black;
 }

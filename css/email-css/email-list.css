@@ -3,30 +3,37 @@
     margin: 0;
     margin-left: 190px;
 }
+
 .emails-list li {
     display: flex;
-    background-color: rgb(204, 240, 240);
     list-style: none;
     padding: 10px;
     margin: 0;
-    border: black solid 1px;
     justify-content: space-between;
     align-items: center;
+    box-shadow: 0px 1px 0px grey;
 }
+
 .sender-img {
     height: 50px;
+    width: 50px;
+    background-color: rgb(93, 238, 93);
+    border-radius: 50%;
+    font-size: larger;
 }
+
 .email-preview {
     display: flex;
     justify-content: space-between;
     gap: 40px;
     align-items: center;
 }
+
 .email-preview .email-body {
-    /* cursor: pointer; */
     max-width: 500px;
     text-align: start;
 }
+
 .email-preview .longTxt {
     cursor: pointer;
 }
@@ -36,12 +43,14 @@
     gap: 10px;
     align-items: center;
 }
+
 .email-actions {
     display: flex;
     gap: 10px;
     cursor: pointer;
-    font-size:larger;
+    font-size: larger;
 }
+
 .email-display {
     display: flex;
     align-items: center;

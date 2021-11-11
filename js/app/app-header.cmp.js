@@ -2,9 +2,8 @@ export default {
     template: `
         <header class="app-header">
             <!-- <section class="app-header"> -->
-                <div class="logo">
-                    <img src="/img/pegasus.png" class='logo-img'> 
-                    <h3>Appsus</h3>
+                    <img src="/img/logo.png" class='logo-img'> 
+                    <!-- <h3>Appsus</h3> -->
                 </div>
                 <nav>
                     <router-link to="/" active-class="active-link" exact>Home</router-link> |

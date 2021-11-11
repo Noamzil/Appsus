@@ -4,8 +4,8 @@ export default {
     template: `
         <section class="email-preview">
             <div class="email-sender">   
-                <img src="/img/email-img/sender.png" class="sender-img">
-                <h3>{{senderName}} </h3>
+               <h1 class="sender-img">  {{firstLetter}}</h1>
+                <h3 :style=readStyle>{{senderName}} </h3>
             </div>
             <div @click="changePreview" class="email-display">
                 <h3>{{email.subject}} </h3>
@@ -45,6 +45,9 @@ export default {
         sentAt() {
             const month = new Date(this.email.sentAt).toString().slice(4,10) 
             return month
+        },
+        firstLetter() {
+            return this.email.from.slice(0,1).toUpperCase()
         }
     },
     methods: {

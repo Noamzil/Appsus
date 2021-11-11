@@ -1,0 +1,23 @@
+.email-filter {
+    display: flex;
+    margin-left: 190px;
+    justify-content: space-between;
+    padding: 10px 5px;
+}
+.email-search input {
+    width: 450px ;
+    border-radius: 5px;
+    padding: 5px 5px;
+}
+
+.email-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 150px;
+    padding-right: 10px;
+}
+.email-sort {
+    display: flex;
+}
+

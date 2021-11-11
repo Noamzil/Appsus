@@ -11,6 +11,7 @@
     gap: 20px;
     font-family: Roboto;
     color: #5b5b5b;
+    text-align: start;
 }
 
 .new-mail {
@@ -29,4 +30,5 @@
     cursor: pointer;
     font-size: larger;
     font-weight: bold;
+    padding-left: 10px;
 }

@@ -12,8 +12,7 @@ export default {
                 </select>
                 <div class="email-sort">
                     <p @click="sortDate" title="Sort By Date"> <i class="fas fa-sort"></i></p>
-                    <p @click="sortTitle" > <i class="fas fa-sort-alpha-down"></i></p>
-                    <p> <i class="fas fa-sort-alpha-down-alt"></i></p>
+                    <p @click="sortTitle"> <i class="fas fa-sort-alpha-down"></i></p>
                 </div>
             </div>
         </section>

@@ -21,7 +21,9 @@ export default {
             },
             folders: null,
             typeSelected: 'inbox',
-            sortDateSTB: true
+            sortDateSTB: true,
+            sortTitleAZ: true,
+
         }
     },
     components: {
@@ -86,9 +88,16 @@ export default {
             this.sortDateSTB = !this.sortDateSTB
         },
         sortTitle() {
-            this.emails.sort((a, b) => {
-                return (a.subject.toLowerCase()>b.subject.toLowerCase()) ? 1 : -1
-            })
+            if (this.sortTitleAZ) {
+                this.emails.sort((a, b) => {
+                    return (a.subject.toLowerCase()>b.subject.toLowerCase()) ? 1 : -1
+                })
+            } else {
+                this.emails.sort((a, b) => {
+                    return (a.subject.toLowerCase()<b.subject.toLowerCase()) ? 1 : -1
+                })
+            }
+            this.sortTitleAZ = !this.sortTitleAZ
         }
 
     },
@@ -100,13 +109,11 @@ export default {
                 return email.subject.toLowerCase().includes(searchStr)
             });
             if (this.filterBy.read && this.filterBy.title) {
-                console.log('im here');
                 var emailsToShow = this.emails.filter(email => {
                     return email.subject.toLowerCase().includes(searchStr) && email.isRead + '' == this.filterBy.read
                 });
             }
             if (this.filterBy.read) {
-                console.log('im hereee');
                 var emailsToShow = this.emails.filter(email => {
                     return email.isRead + '' == this.filterBy.read
                 });
