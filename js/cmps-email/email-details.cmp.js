@@ -3,7 +3,9 @@ import { emailService } from '../services/email-service.js';
 export default {
   template: `
         <section class="email-details">
-            <h1>Hello</h1>
+          <h1>{{email.subject}}</h1>
+          <h3>{{email.from}}</h3>
+          <p>{{email.body}}</p>
             <p>{{email}}</p>
         </section>
     `,
@@ -14,9 +16,7 @@ export default {
   },
   created() {
     const { emailId } = this.$route.params;
-    console.log(emailId);
     emailService.getById(emailId).then((email) => {
-      console.log(email);
       this.email = email;
     });
   },
