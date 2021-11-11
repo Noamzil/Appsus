@@ -20,6 +20,15 @@
     justify-content: space-between;
     gap: 40px;
 }
+.email-preview .email-body {
+    /* cursor: pointer; */
+    max-width: 500px;
+    text-align: start;
+}
+.email-preview .longTxt {
+    cursor: pointer;
+}
+
 .email-sender {
     display: flex;
     gap: 10px;

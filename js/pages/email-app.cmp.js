@@ -68,7 +68,6 @@ export default {
                 });
         },
         addEmail() {
-            console.log('im here in app');
             this.loadEmails()
             this.setFolders()
             this.emailsByType()
