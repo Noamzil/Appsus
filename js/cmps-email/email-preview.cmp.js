@@ -5,7 +5,8 @@ export default {
         <section class="email-preview">
             <div class="email-sender">   
                <h1 class="sender-img">  {{firstLetter}}</h1>
-                <h3 :style=readStyle>{{senderName}} </h3>
+                <h3 >{{senderName}} </h3>
+                <!-- :style=readStyle -->
             </div>
             <div @click="changePreview" class="email-display">
                 <h3>{{email.subject}} </h3>
@@ -16,7 +17,7 @@ export default {
                 <p @click="deleteEmail">🗑️</p>
                 <p @click="changeReadingStatus">{{readingStatus}}</p>
             </div>
-            <p>{{sentAt}}</p>
+            <p class="email-date">{{sentAt}}</p>
         </section>
     `,
     data() {
