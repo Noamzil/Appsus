@@ -1,4 +1,5 @@
 import { noteService } from "../services/note-service.js";
+import { router } from "../routes.js";
 import noteList from "../cmps-notes/note-list.cmp.js";
 import noteFilter from "../cmps-notes/note-filter.cmp.js";
 
@@ -46,6 +47,7 @@ export default {
       var txt = ev.target.value;
       console.log(txt);
       this.newNote = noteService.createNote();
+      router.push(`note/` + this.newNote.id+`/edit`);
     },
     loadNotes() {
       noteService.query().then((notes) => {

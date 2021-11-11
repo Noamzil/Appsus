@@ -41,7 +41,7 @@ export default {
     },
     sendAsEmail(note) {
       console.log(note);
-      console.log(` note sent as email`);
+      console.log(`note sent as email`);
     },
     deleteNote(noteId) {
       this.$emit("delete", noteId);
@@ -50,12 +50,10 @@ export default {
       this.$emit("duplicate", noteId);
     },
     deleteTodoLine(ev, note) {
-      console.log(note);
       noteService.getById(note.id).then((currNote) => {
         currNote.info.todos = ev;
         noteService.save(currNote);
       });
-      console.log(ev);
     },
   },
   components: {
