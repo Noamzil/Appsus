@@ -1,20 +1,49 @@
-.email-details {
+.email-details-container{
     text-align: start;
     max-width: 1000px;
     margin: auto;
     border: grey solid 1.5px;
 }
 
-.email-details .subject{
-    background-color: wheat;
+.email-details .subject {
     padding: 10px;
 }
-.email-details .from{
-    background-color: rgb(233, 164, 124);
+
+.email-details .from {
     padding: 10px;
 }
-.email-details .body{
-    background-color: rgb(233, 184, 129);
+
+.email-details .body {
     padding: 10px;
     height: 716px;
+}
+
+.email-details hr {
+    width: 98%;
+}
+
+.sender-email {
+    font-weight: 200;
+}
+
+.details-return {
+    font-size: 30px;
+    position: relative;
+    right: 480px;
+    padding: 30px 0;
+}
+
+.sender-img-details {
+    height: 50px;
+    width: 50px;
+    background-color: rgb(255, 167, 167);
+    border-radius: 50%;
+    font-size: larger;
+    line-height: 50px;
+    text-align: center;
+    margin: 0 15px;
+
+}
+.sender-details {
+    display: flex;
 }

@@ -15,8 +15,8 @@ export default {
             </div>
             <div class="email-actions">
                 <p @click="deleteEmail"><i class="far fa-trash-alt"></i></p>
-                <p v-if="email.isRead" @click="changeReadingStatus">'<i class="far fa-envelope"></i>'</p>
-                <p v-else @click="changeReadingStatus">'<i class="far fa-envelope-open"></i>'</p>
+                <p v-if="email.isRead" @click="changeReadingStatus"><i class="far fa-envelope-open"></i></p>
+                <p v-else @click="changeReadingStatus"><i class="far fa-envelope"></i></p>
             </div>
             <p class="email-date">{{sentAt}}</p>
         </section>
@@ -30,9 +30,6 @@ export default {
     computed: {
         senderName() {
             return this.email.from.split('@')[0]
-        },
-        readingStatus() {
-            return (this.email.isRead) ? '📨' : '<i class="far fa-envelope-open"></i>'
         },
         NewEmails() {
             emailsPrev = this.emails.split
