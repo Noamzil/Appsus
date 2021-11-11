@@ -12,27 +12,25 @@ export default {
       <ul class="notes-list">
         <li v-for="note in notes" :key="note.id" >
         <div class="note-container" :style="{ backgroundColor: note.style.backgroundColor}" >
-            <component class="note-description-container" :is="note.type" :note="note"/> </component>
+            <component @deleteTodo="deleteTodoLine($event,note)" class="note-description-container" :is="note.type" :note="note"/> </component>
             <div class="note-icons">
-              <i @click="pinNote(note.id)" title="pin note" class="fas fa-thumbtack"></i>
+              <i @click="pinNote(note.id)" title="Pin note" class="fas fa-thumbtack"></i>
               <div class="font-col-container">
-                <input v-model="note.style.backgroundColor" class="font-color" @input="changeNoteColor(note)" type="color"/>
+                <input v-model="note.style.backgroundColor" title="Change color" class="font-color" @input="changeNoteColor(note)" type="color"/>
                 <i class="fas fa-palette"></i>
               </div>
-              <i @click="sendAsEmail(note)" title="send as email" class="fas fa-envelope"></i>
-              <router-link :to="'/note/'+note.id + '/edit'" ><i title="edit note" class="far fa-edit"></i></router-link>
-              <i @click="deleteNote(note.id)" title="delete note" class="fas fa-trash-alt"></i>
-              <i @click="duplicateNote(note.id)" title="duplicate note" class="far fa-copy"></i>
+              <i @click="sendAsEmail(note)" title="Send as email" class="fas fa-envelope"></i>
+              <router-link :to="'/note/'+note.id + '/edit'" ><i title="Edit note" class="far fa-edit"></i></router-link>
+              <i @click="deleteNote(note.id)" title="Delete note" class="fas fa-trash-alt"></i>
+              <i @click="duplicateNote(note.id)" title="Duplicate note" class="far fa-copy"></i>
             </div>
             </div>
         </li>
       </ul>
     </section>
     `,
-  created() {},
   methods: {
     pinNote(noteId) {
-      console.log(`pinned this note`, noteId);
       this.$emit("pin", noteId);
     },
     changeNoteColor(note) {
@@ -48,9 +46,17 @@ export default {
     deleteNote(noteId) {
       this.$emit("delete", noteId);
     },
-    duplicateNote(noteId){
+    duplicateNote(noteId) {
       this.$emit("duplicate", noteId);
-    }
+    },
+    deleteTodoLine(ev, note) {
+      console.log(note);
+      noteService.getById(note.id).then((currNote) => {
+        currNote.info.todos = ev;
+        noteService.save(currNote);
+      });
+      console.log(ev);
+    },
   },
   components: {
     noteTxt,
@@ -60,4 +66,3 @@ export default {
     noteService,
   },
 };
-

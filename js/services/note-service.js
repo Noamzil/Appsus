@@ -2,12 +2,10 @@ import { utilService } from "./util-service.js";
 import { storageService } from "./async-storage-service.js";
 
 const NOTES_KEY = "notes";
-var gNoteId = 101;
 _createNotes();
 
 export const noteService = {
   query,
-  getEmptyNote,
   remove,
   save,
   getById,
@@ -37,22 +35,6 @@ function addFirst(note) {
 
 function getById(noteId) {
   return storageService.get(NOTES_KEY, noteId);
-}
-
-function getEmptyNote() {
-  return {
-    id: storageService.makeId(),
-    type: null,
-    isPinned: false,
-    info: {},
-    style: null,
-  };
-}
-
-function _nextId() {
-  var nextId = `n` + gNoteId;
-  gNoteId++;
-  return nextId;
 }
 
 function _createNotes() {

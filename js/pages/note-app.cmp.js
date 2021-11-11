@@ -8,10 +8,10 @@ export default {
     <section class="note-page">
         <div class="input-container">
           <div class="input-icons">
-            <i @click="changeInput('txt')" class=" far fa-comment"></i>
-            <i @click="changeInput('image')"class=" far fa-image"></i>
-            <i @click="changeInput('video')" class="  fab fa-youtube"></i>
-            <i @click="changeInput('todos')" class=" fas fa-list-ul"></i>
+            <i @click="changeInput('txt')" title="Text" class=" far fa-comment"></i>
+            <i @click="changeInput('image')" title="Image" class=" far fa-image"></i>
+            <i @click="changeInput('video')" title="Video" class="  fab fa-youtube"></i>
+            <i @click="changeInput('todos')" title="List" class=" fas fa-list-ul"></i>
           </div>
           <input @keyup.enter ="createNewNote" class="note-input" type="text" :placeholder="inputMsg">
         </div>
@@ -38,7 +38,6 @@ export default {
 
   methods: {
     setFilter(filterBy) {
-      console.log(filterBy);
       this.filterBy.txt = filterBy.txt;
       this.filterBy.type = filterBy.type;
     },
@@ -47,12 +46,10 @@ export default {
       var txt = ev.target.value;
       console.log(txt);
       this.newNote = noteService.createNote();
-      
     },
     loadNotes() {
       noteService.query().then((notes) => {
         this.notes = notes;
-        console.log(this.notes);
       });
     },
     changeInput(val) {
@@ -71,8 +68,6 @@ export default {
           break;
       }
       this.newNote.type = `note` + val;
-      console.log(this.newNote);
-
     },
     pinNote(id) {
       noteService.getById(id).then((note) => {
@@ -85,8 +80,7 @@ export default {
     },
     duplicateNote(id) {
       noteService.getById(id).then((note) => {
-        noteService.addFirst(note).then((note) => {
-          console.log(note);
+        noteService.addFirst(note).then(() => {
           this.loadNotes();
         });
       });
@@ -121,8 +115,8 @@ export default {
           }
           if (note.info.txt)
             return note.info.txt.toLowerCase().includes(searchTxt);
-          if (note.info.title)
-            return note.info.title.toLowerCase().includes(searchTxt);
+          else note.info.title;
+          return note.info.title.toLowerCase().includes(searchTxt);
         });
       }
       if (!notesToShow.length) return notesFilteredByTxt;
