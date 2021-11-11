@@ -1,8 +1,8 @@
-import { noteService } from '../services/note-service.js';
-import noteTxt from './notes-types.cmp/note-text.cmp.js';
-import noteImg from './notes-types.cmp/note-img.cmp.js';
-import noteTodos from './notes-types.cmp/note-todo.cmp.js';
-import noteVideo from './notes-types.cmp/note-video.cmp.js';
+import { noteService } from "../services/note-service.js";
+import noteTxt from "./notes-types.cmp/note-text.cmp.js";
+import noteImg from "./notes-types.cmp/note-img.cmp.js";
+import noteTodos from "./notes-types.cmp/note-todo.cmp.js";
+import noteVideo from "./notes-types.cmp/note-video.cmp.js";
 
 export default {
   template: `
@@ -14,17 +14,18 @@ export default {
             <input v-if="isUrlHere()" v-model="noteToEdit.info.url" type="text" placeholder="URL">
             <input v-model="noteToEdit.info.txt" type="text" placeholder="Text">
           </template>
-        <template v-else>
+        <div class="todo-edit" v-else>
               <ul>
                   <li v-for="todo in noteToEdit.info.todos">
                    <input v-model="todo.txt" type="text" placeholder="Text">
                   </li>
               </ul>
               <button @click="addTodo">Add line</button>
-          </template>
-             <button>Save</button>
+              <button>Save</button>
+          </div>
             <component class="note-description-container" :is="noteToEdit.type" :note="noteToEdit"/> </component>
         </form>
+
         </section>
     `,
   data() {
@@ -40,24 +41,24 @@ export default {
         console.log(this.noteToEdit);
       });
     } else {
-      this.noteToEdit = noteService.getEmptyNote();
+      this.noteToEdit = noteService.createNote();
     }
   },
   methods: {
     save() {
-      noteService.save(this.noteToEdit).then(() => this.$router.push('/note'));
+      noteService.save(this.noteToEdit).then(() => this.$router.push("/note"));
     },
     isUrlHere() {
       console.log(`in`);
       return (
-        this.noteToEdit.type === 'note-img' ||
-        this.noteToEdit.type === 'note-video'
+        this.noteToEdit.type === "note-img" ||
+        this.noteToEdit.type === "note-video"
       );
     },
     addTodo(ev) {
       ev.preventDefault();
       this.noteToEdit.info.todos.push({
-        txt: '',
+        txt: "",
         doneAt: null,
       });
     },

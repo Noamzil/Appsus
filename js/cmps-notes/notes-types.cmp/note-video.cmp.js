@@ -1,5 +1,5 @@
 export default {
-  props: ['note'],
+  props: ["note"],
   template: `
     <div class="note-img">
         <h3>{{note.info.title}} </h3>
@@ -9,8 +9,4 @@ export default {
         <p>{{note.info.txt}} </p>
     </div>
         `,
-  data() {
-    return {};
-  },
-  computed: {},
 };

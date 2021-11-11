@@ -1,11 +1,6 @@
 export default {
-  props: ['todo'],
+  props: ["todo"],
   template: `
 <p>{{todo.txt}}</p>
         `,
-  data() {
-    return {};
-  },
-  computed: {},
-  
 };
