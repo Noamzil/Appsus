@@ -1,7 +1,7 @@
-import { utilService } from './util-service.js';
-import { storageService } from './async-storage-service.js';
+import { utilService } from "./util-service.js";
+import { storageService } from "./async-storage-service.js";
 
-const NOTES_KEY = 'notes';
+const NOTES_KEY = "notes";
 var gNoteId = 101;
 _createNotes();
 
@@ -11,6 +11,7 @@ export const noteService = {
   remove,
   save,
   getById,
+  createNote,
 };
 
 function query() {
@@ -54,41 +55,35 @@ function _createNotes() {
   if (!notes || !notes.length) {
     notes = [];
     notes.push(
-      _createNote(
-        'note-txt',
-        'Fullstack Me Baby!',
+      createNote(
+        "note-txt",
+        "Fullstack Me Baby!",
         undefined,
         undefined,
         undefined
       )
     );
     notes.push(
-      _createNote(
-        'note-img',
+      createNote(
+        "note-img",
         undefined,
-        'Bobi and Me',
-        'https://dogtime.com/assets/uploads/2011/03/puppy-development.jpg',
+        "Bobi and Me",
+        "https://dogtime.com/assets/uploads/2011/03/puppy-development.jpg",
         undefined
       )
     );
     notes.push(
-      _createNote(
-        'note-todos',
-        undefined,
-        'Get my stuff together',
-        undefined,
-        [
-          { txt: 'Driving liscence', doneAt: null },
-          { txt: 'Coding power', doneAt: 187111111 },
-        ]
-      )
+      createNote("note-todos", undefined, "Get my stuff together", undefined, [
+        { txt: "Driving liscence", doneAt: null },
+        { txt: "Coding power", doneAt: 187111111 },
+      ])
     );
     notes.push(
-      _createNote(
-        'note-video',
+      createNote(
+        "note-video",
         undefined,
-        'Try video',
-        'https://www.w3schools.com/html/mov_bbb.mp4',
+        "Try video",
+        "https://www.w3schools.com/html/mov_bbb.mp4",
         undefined
       )
     );
@@ -97,7 +92,7 @@ function _createNotes() {
   return notes;
 }
 
-function _createNote(type, txt, title, url, todos) {
+function createNote(type, txt, title, url, todos) {
   const note = {
     id: _nextId(),
     type,
@@ -108,7 +103,7 @@ function _createNote(type, txt, title, url, todos) {
       url,
       todos,
     },
-    style: { backgroundColor: '#A39E9E' },
+    style: { backgroundColor: "#A39E9E" },
   };
   return note;
 }

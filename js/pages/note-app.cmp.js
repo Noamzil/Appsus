@@ -1,5 +1,6 @@
-import { noteService } from '../services/note-service.js';
-import noteList from '../cmps-notes/note-list.cmp.js';
+import { noteService } from "../services/note-service.js";
+import noteList from "../cmps-notes/note-list.cmp.js";
+import noteFilter from "../cmps-notes/note-filter.cmp.js";
 
 export default {
   name: `note-page`,
@@ -8,23 +9,14 @@ export default {
         <h1>Notes</h1>
         <div class="input-container">
           <div class="input-icons">
-              <i @click="changeInput('txt')" class="far fa-comment"></i>
-              <i @click="changeInput('image')" class="far fa-image"></i>
-              <i @click="changeInput('video')" class="fab fa-youtube"></i>
-              <i @click="changeInput('todo')" class="fas fa-list-ul"></i>
+              <i @click="changeInput('txt')" class=" far fa-comment"></i>
+              <i @click="changeInput('image')"class=" far fa-image"></i>
+              <i @click="changeInput('video')" class="  fab fa-youtube"></i>
+              <i @click="changeInput('todo')" class=" fas fa-list-ul"></i>
           </div>
-          <input class="note-input" type="text" :placeholder="inputMsg">
+          <input @keyup.enter ="createNewNote" class="note-input" type="text" :placeholder="inputMsg">
         </div>
-        <!-- <div class="filter-container">
-          <h1>filter</h1>
-        <div class="input-icons">
-              <i @click="changeInput('txt')" class="far fa-comment"></i>
-              <i @click="changeInput('image')" class="far fa-image"></i>
-              <i @click="changeInput('video')" class="fab fa-youtube"></i>
-              <i @click="changeInput('todo')" class="fas fa-list-ul"></i>
-          </div>
-          <input class="note-input" type="text" :placeholder="inputMsg">
-          </div> -->
+        <note-filter/>
         <note-list @delete="deleteNote" :notes="notesToShow"/>
     </section>
     `,
@@ -32,6 +24,11 @@ export default {
     return {
       notes: null,
       inputMsg: null,
+      newNote: null,
+      filterBy: {
+        title: null,
+        read: null,
+    },
     };
   },
   created() {
@@ -40,6 +37,11 @@ export default {
   },
 
   methods: {
+    createNewNote(ev) {
+      var txt = ev.target.value;
+      console.log(txt);
+      this.newNote = noteService.createNote(type, txt, title, url, todos);
+    },
     loadNotes() {
       noteService.query().then((notes) => {
         this.notes = notes;
@@ -68,7 +70,7 @@ export default {
           this.notes = this.notes.filter((note) => note.id !== id);
         })
         .catch((err) => {
-          console.log('err', err);
+          console.log("err", err);
         });
     },
   },
@@ -79,5 +81,6 @@ export default {
   },
   components: {
     noteList,
+    noteFilter,
   },
 };

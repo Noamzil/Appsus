@@ -1,12 +1,12 @@
-import noteTxt from './notes-types.cmp/note-text.cmp.js';
-import noteImg from './notes-types.cmp/note-img.cmp.js';
-import noteTodos from './notes-types.cmp/note-todo.cmp.js';
-import noteVideo from './notes-types.cmp/note-video.cmp.js';
-import { noteService } from '../services/note-service.js';
+import noteTxt from "./notes-types.cmp/note-text.cmp.js";
+import noteImg from "./notes-types.cmp/note-img.cmp.js";
+import noteTodos from "./notes-types.cmp/note-todo.cmp.js";
+import noteVideo from "./notes-types.cmp/note-video.cmp.js";
+import { noteService } from "../services/note-service.js";
 
 export default {
   name: `note-list`,
-  props: ['notes'],
+  props: ["notes"],
   template: `
     <section class="notes-list-container">
       <ul class="notes-list">
@@ -42,7 +42,7 @@ export default {
       ev.path[3].style.backgroundColor = note.style.backgroundColor;
       noteService.getById(note.id).then((currNote) => {
         currNote.style.backgroundColor = note.style.backgroundColor;
-        // console.log(currNote.style.backgroundColor);
+        noteService.save(currNote);
       });
     },
     sendAsEmail(note) {
@@ -50,7 +50,7 @@ export default {
       console.log(` note sent as email`);
     },
     deleteNote(noteId) {
-      this.$emit('delete', noteId);
+      this.$emit("delete", noteId);
     },
   },
   components: {
