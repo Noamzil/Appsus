@@ -8,9 +8,8 @@ export default {
     template: `
         <section v-if="emails" class="email-page">
             <email-filter @filtered="setFilter"/>
-            <email-folders-list @type="setType" :unread="unreadEmails"/>
+            <email-folders-list @type="setType" :unread="unreadEmails" @add="addEmail"/>
             <email-list :emails="emailsToShow" @delete="deleteEmail"/>
-
         </section>
     `,
     data() {
@@ -61,13 +60,19 @@ export default {
         },
         deleteEmail(id) {
             emailService.remove(id)
-            .then(() => {
-              this.emails = this.emails.filter(email => email.id !== id);
-            })
-            .catch((err) => {
-              console.log('err', err);
-            });
+                .then(() => {
+                    this.emails = this.emails.filter(email => email.id !== id);
+                })
+                .catch((err) => {
+                    console.log('err', err);
+                });
         },
+        addEmail() {
+            console.log('im here in app');
+            this.loadEmails()
+            this.setFolders()
+            this.emailsByType()
+        }
 
     },
     computed: {
@@ -93,11 +98,11 @@ export default {
         },
         unreadEmails() {
             const unreadEmails = this.emails.filter(email => {
-                return !email.isRead 
+                return !email.isRead
             })
-           return unreadEmails.length
+            return unreadEmails.length
         }
-        
+
     }
 }
 

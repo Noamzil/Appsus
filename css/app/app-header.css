@@ -1,0 +1,19 @@
+.app-header {
+    height:120px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(191, 241, 241);
+    padding: 0 40px;
+}
+.logo {
+    margin: 0;
+    color: #083d64;
+    /* display: flex; */
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-img {
+    height: 100px;
+}

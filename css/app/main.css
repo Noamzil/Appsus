@@ -1,0 +1,19 @@
+@import url(/css/email-css/email-topbar.css);
+@import url(/css/email-css/email-search.css);
+@import url(/css/app/app-header.css);
+@import url(/css/email-css/new-email.css);
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    text-align: center;
+    font-family: Arial
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+    padding: 0;
+}

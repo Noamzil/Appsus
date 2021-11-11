@@ -1,18 +1,25 @@
+import newEmail from './new-email.cmp.js'
 export default {
     props:['unread'],
     template: `
         <section class="email-folders-list">
-            <button class="new-mail"> New Mail</button>
+            <button class="new-mail" @click="newMail"> New Mail</button>
                 <p @click="changeTxt('inbox')"> Inbox ({{unread}})</p>
                 <p @click="changeTxt('sent')">Sent</p>    
                 <p @click="changeTxt('trash')">Trash</p>    
-                <p @click="changeTxt('draft')">Draft</p>    
+                <p @click="changeTxt('draft')">Draft</p>
+                <new-email v-if="isNewEmail" @close="newMail" @addEmail="addEmail"/>  
+                  
         </section>
     `,
     data() {
         return {
-            type: 'inbox'
+            type: 'inbox',
+            isNewEmail: false
         }
+    },
+    components: {
+        newEmail
     },
     methods: {
         changeTxt(val) {
@@ -34,6 +41,13 @@ export default {
         },
         setType() {
             this.$emit('type', { ...this.type })
+        },
+        newMail() {
+            this.isNewEmail = !this.isNewEmail
+        },
+        addEmail() {
+            console.log('im here in folders');
+            this.$emit('add')
         }
     }
 }

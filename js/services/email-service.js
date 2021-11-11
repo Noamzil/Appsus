@@ -89,6 +89,7 @@ export const emailService = {
     getById,
     getNextemailId,
     getEmailType,
+    getEmptyMail
 }
 
 function query(filterBy = {}) {
@@ -124,6 +125,17 @@ function getEmailType(emails) {
     var sent = emails.filter(email => {
         return email.from === loggedinUser.email
     })
-    return {inbox,sent}
+    return { inbox, sent }
 }
-
+function getEmptyMail() {
+    return {
+        id: '',
+        title: '',
+        from: loggedinUser.email,
+        to:'',
+        subject: '',
+        content: '',
+        sentAt: '',
+        isSelected: false
+    };
+}

@@ -3,7 +3,7 @@
     height: 100%; 
     width: 190px; 
     position: fixed; 
-    top: 0; 
+    top: 120px; 
     left: 0;
     background-color: rgb(192, 179, 241); 
     /* overflow-x: hidden; Disable horizontal scroll */
@@ -17,6 +17,8 @@
     width: 50px;
     height: 50px;
     background-color: rgb(234, 167, 247);
+    cursor: pointer;
+    margin: 0 auto;
 }
 .email-folders-list p {
     cursor: pointer;
