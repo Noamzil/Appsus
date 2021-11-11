@@ -40,7 +40,7 @@ var emails = [
         isRead: true,
         sentAt: new Date(2020, 8, 5),
         to: 'momo@momo.com',
-        from: 'lala@lolo.com',
+        from: 'sksksn@lolo.com',
         isSelected: false
     },
     {
@@ -51,7 +51,7 @@ var emails = [
         isRead: false,
         sentAt: 1551133930594,
         to: 'momo@momo.com',
-        from: 'lala@lolo.com',
+        from: 'kikiki@lolo.com',
         isSelected: false
     },
     {
@@ -61,7 +61,7 @@ var emails = [
         isRead: false,
         sentAt: new Date(2020, 4, 10),
         to: 'momo@momo.com',
-        from: 'lala@lolo.com',
+        from: 'chahah@lolo.com',
         isSelected: false
     },
     {

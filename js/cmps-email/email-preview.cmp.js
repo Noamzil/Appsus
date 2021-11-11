@@ -5,17 +5,18 @@ export default {
         <section class="email-preview">
             <div class="email-sender">   
                <h1 class="sender-img">  {{firstLetter}}</h1>
-                <h3 >{{senderName}} </h3>
+                <h3 class="sender-name" >{{senderName}} </h3>
                 <!-- :style=readStyle -->
             </div>
             <div @click="changePreview" class="email-display">
-                <h3>{{email.subject}} </h3>
+                <h3 class="email-subject-list">{{email.subject}} </h3>
                 <p v-if="isShortText" class="email-body" :class="prevClass">{{shortText}}</p>
                 <p v-else class="email-body" :class="prevClass">{{longTxt}}</p>
             </div>
             <div class="email-actions">
-                <p @click="deleteEmail">🗑️</p>
-                <p @click="changeReadingStatus">{{readingStatus}}</p>
+                <p @click="deleteEmail"><i class="far fa-trash-alt"></i></p>
+                <p v-if="email.isRead" @click="changeReadingStatus">'<i class="far fa-envelope"></i>'</p>
+                <p v-else @click="changeReadingStatus">'<i class="far fa-envelope-open"></i>'</p>
             </div>
             <p class="email-date">{{sentAt}}</p>
         </section>
@@ -31,7 +32,7 @@ export default {
             return this.email.from.split('@')[0]
         },
         readingStatus() {
-            return (this.email.isRead) ? '📨' : '✉️'
+            return (this.email.isRead) ? '📨' : '<i class="far fa-envelope-open"></i>'
         },
         NewEmails() {
             emailsPrev = this.emails.split
