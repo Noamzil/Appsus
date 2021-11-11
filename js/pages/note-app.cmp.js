@@ -12,12 +12,12 @@ export default {
               <i @click="changeInput('txt')" class=" far fa-comment"></i>
               <i @click="changeInput('image')"class=" far fa-image"></i>
               <i @click="changeInput('video')" class="  fab fa-youtube"></i>
-              <i @click="changeInput('todo')" class=" fas fa-list-ul"></i>
+              <i @click="changeInput('todos')" class=" fas fa-list-ul"></i>
           </div>
           <input @keyup.enter ="createNewNote" class="note-input" type="text" :placeholder="inputMsg">
         </div>
         <note-filter @filtered="setFilter"/>
-        <note-list @delete="deleteNote" :notes="notesToShow"/>
+        <note-list @delete="deleteNote"  @pin="pinNote" @duplicate="duplicateNote" :notes="notesToShow"/>
     </section>
     `,
   data() {
@@ -33,6 +33,7 @@ export default {
   },
   created() {
     this.loadNotes();
+    this.newNote = noteService.createNote();
     this.inputMsg = `What's on your mind...`;
   },
 
@@ -43,9 +44,11 @@ export default {
       this.filterBy.type = filterBy.type;
     },
     createNewNote(ev) {
-      // var txt = ev.target.value;
-      // console.log(txt);
-      // this.newNote = noteService.createNote(type, txt, title, url, todos);
+      console.log(this.newNote);
+      var txt = ev.target.value;
+      console.log(txt);
+      this.newNote = noteService.createNote();
+      
     },
     loadNotes() {
       noteService.query().then((notes) => {
@@ -64,10 +67,30 @@ export default {
         case `video`:
           this.inputMsg = `Enter video URL...`;
           break;
-        case `todo`:
+        case `todos`:
           this.inputMsg = `Enter comma seperated line...`;
           break;
       }
+      this.newNote.type = `note` + val;
+      console.log(this.newNote);
+
+    },
+    pinNote(id) {
+      noteService.getById(id).then((note) => {
+        noteService.remove(note.id).then(() => {
+          noteService.addFirst(note).then(() => {
+            this.loadNotes();
+          });
+        });
+      });
+    },
+    duplicateNote(id) {
+      noteService.getById(id).then((note) => {
+        noteService.addFirst(note).then((note) => {
+          console.log(note);
+          this.loadNotes();
+        });
+      });
     },
     deleteNote(id) {
       noteService

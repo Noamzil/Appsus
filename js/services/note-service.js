@@ -12,6 +12,7 @@ export const noteService = {
   save,
   getById,
   createNote,
+  addFirst,
 };
 
 function query() {
@@ -30,17 +31,21 @@ function save(note) {
   else return storageService.post(NOTES_KEY, note);
 }
 
+function addFirst(note) {
+  return storageService.unshift(NOTES_KEY, note);
+}
+
 function getById(noteId) {
   return storageService.get(NOTES_KEY, noteId);
 }
 
 function getEmptyNote() {
   return {
-    id: _nextId(),
-    type,
+    id: storageService.makeId(),
+    type: null,
     isPinned: false,
     info: {},
-    style,
+    style: null,
   };
 }
 
@@ -54,26 +59,18 @@ function _createNotes() {
   let notes = utilService.loadFromStorage(NOTES_KEY);
   if (!notes || !notes.length) {
     notes = [];
-    notes.push(
-      createNote(
-        "note-txt",
-        "Fullstack Me Baby!",
-        '',
-        '',
-        ''
-      )
-    );
+    notes.push(createNote("note-txt", "Fullstack Me Baby!", "", "", ""));
     notes.push(
       createNote(
         "note-img",
-        '',
+        "",
         "Bobi and Me",
         "https://dogtime.com/assets/uploads/2011/03/puppy-development.jpg",
-        ''
+        ""
       )
     );
     notes.push(
-      createNote("note-todos", '', "Get my stuff together", '', [
+      createNote("note-todos", "", "Get my stuff together", "", [
         { txt: "Driving liscence", doneAt: null },
         { txt: "Coding power", doneAt: 187111111 },
       ])
@@ -81,10 +78,10 @@ function _createNotes() {
     notes.push(
       createNote(
         "note-video",
-        '',
+        "",
         "Try video",
         "https://www.w3schools.com/html/mov_bbb.mp4",
-        ''
+        ""
       )
     );
     utilService.saveToStorage(NOTES_KEY, notes);
@@ -92,9 +89,15 @@ function _createNotes() {
   return notes;
 }
 
-function createNote(type, txt, title, url, todos) {
+function createNote(
+  type = null,
+  txt = null,
+  title = null,
+  url = null,
+  todos = null
+) {
   const note = {
-    id: _nextId(),
+    id: storageService.makeId(),
     type,
     isPinned: false,
     info: {

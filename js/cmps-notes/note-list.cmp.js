@@ -16,12 +16,13 @@ export default {
             <div class="note-icons">
               <i @click="pinNote(note.id)" title="pin note" class="fas fa-thumbtack"></i>
               <div class="font-col-container">
-                <input v-model="note.style.backgroundColor" class="font-color" @input="changeNoteColor($event,note)" type="color"/>
+                <input v-model="note.style.backgroundColor" class="font-color" @input="changeNoteColor(note)" type="color"/>
                 <i class="fas fa-palette"></i>
               </div>
               <i @click="sendAsEmail(note)" title="send as email" class="fas fa-envelope"></i>
               <router-link :to="'/note/'+note.id + '/edit'" ><i title="edit note" class="far fa-edit"></i></router-link>
               <i @click="deleteNote(note.id)" title="delete note" class="fas fa-trash-alt"></i>
+              <i @click="duplicateNote(note.id)" title="duplicate note" class="far fa-copy"></i>
             </div>
             </div>
         </li>
@@ -32,9 +33,9 @@ export default {
   methods: {
     pinNote(noteId) {
       console.log(`pinned this note`, noteId);
+      this.$emit("pin", noteId);
     },
-    changeNoteColor(ev, note) {
-      ev.path[3].style.backgroundColor = note.style.backgroundColor;
+    changeNoteColor(note) {
       noteService.getById(note.id).then((currNote) => {
         currNote.style.backgroundColor = note.style.backgroundColor;
         noteService.save(currNote);
@@ -47,6 +48,9 @@ export default {
     deleteNote(noteId) {
       this.$emit("delete", noteId);
     },
+    duplicateNote(noteId){
+      this.$emit("duplicate", noteId);
+    }
   },
   components: {
     noteTxt,
@@ -57,4 +61,3 @@ export default {
   },
 };
 
-// <i class="far fa-copy"></i>
