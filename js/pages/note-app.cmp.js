@@ -9,10 +9,10 @@ export default {
         <h1>Notes</h1>
         <div class="input-container">
           <div class="input-icons">
-              <i @click="changeInput('txt')" class=" far fa-comment"></i>
-              <i @click="changeInput('image')"class=" far fa-image"></i>
-              <i @click="changeInput('video')" class="  fab fa-youtube"></i>
-              <i @click="changeInput('todos')" class=" fas fa-list-ul"></i>
+            <i @click="changeInput('txt')" class=" far fa-comment"></i>
+            <i @click="changeInput('image')"class=" far fa-image"></i>
+            <i @click="changeInput('video')" class="  fab fa-youtube"></i>
+            <i @click="changeInput('todos')" class=" fas fa-list-ul"></i>
           </div>
           <input @keyup.enter ="createNewNote" class="note-input" type="text" :placeholder="inputMsg">
         </div>
