@@ -6,7 +6,6 @@ export default {
   name: `note-page`,
   template: `
     <section class="note-page">
-        <h1>Notes</h1>
         <div class="input-container">
           <div class="input-icons">
               <i @click="changeInput('txt')" class=" far fa-comment"></i>
