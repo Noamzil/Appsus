@@ -10,6 +10,11 @@ export default {
                     <option value="true">Read</option>
                     <option value="false">Unread</option>
                 </select>
+                <div class="email-sort">
+                    <p @click="sortDate" title="Sort By Date"> <i class="fas fa-sort"></i></p>
+                    <p @click="sortTitle" > <i class="fas fa-sort-alpha-down"></i></p>
+                    <p> <i class="fas fa-sort-alpha-down-alt"></i></p>
+                </div>
             </div>
         </section>
     `,
@@ -25,6 +30,12 @@ export default {
     methods: {
         filter() {
             this.$emit('filtered', { ...this.filterBy });
+        },
+        sortDate() {
+            this.$emit('sortDate')
+        },
+        sortTitle() {
+            this.$emit('sortTitle')
         }
     }
 }

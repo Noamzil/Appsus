@@ -11,6 +11,7 @@
     margin: 0;
     border: black solid 1px;
     justify-content: space-between;
+    align-items: center;
 }
 .sender-img {
     height: 50px;
@@ -19,6 +20,7 @@
     display: flex;
     justify-content: space-between;
     gap: 40px;
+    align-items: center;
 }
 .email-preview .email-body {
     /* cursor: pointer; */
@@ -32,10 +34,16 @@
 .email-sender {
     display: flex;
     gap: 10px;
+    align-items: center;
 }
 .email-actions {
     display: flex;
     gap: 10px;
     cursor: pointer;
     font-size:larger;
+}
+.email-display {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }

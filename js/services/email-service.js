@@ -7,7 +7,7 @@ var emails = [
         subject: 'Miss you!',
         body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda quibusdam repellat iure fugiat non qui consequatur optio cumque. Delectus error natus fugit harum. Neque incidunt iusto atque suscipit et eos',
         isRead: true,
-        sentAt: 1551133930594,
+        sentAt: Date.now(),
         to: 'momo@momo.com',
         from: 'momo@momo.com',
         isSelected: false
@@ -17,7 +17,7 @@ var emails = [
         subject: 'Hello!',
         body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda quibusdam repellat iure fugiat non qui consequatur optio cumque. Delectus error natus fugit harum. Neque incidunt iusto atque suscipit et eos',
         isRead: true,
-        sentAt: 1551133930594,
+        sentAt: new Date(2018, 12, 17),
         to: 'momo@momo.com',
         from: 'lala@lolo.com',
         isSelected: false
@@ -28,7 +28,7 @@ var emails = [
         body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda quibusdam repellat iure fugiat non qui consequatur optio cumque. Delectus error natus fugit harum. Neque incidunt iusto atque suscipit et eos',
 
         isRead: false,
-        sentAt: 1551133930594,
+        sentAt: new Date(2019, 6, 2),
         to: 'momo@momo.com',
         from: 'lala@lolo.com',
         isSelected: false
@@ -38,7 +38,7 @@ var emails = [
         subject: 'bkabka',
         body: 'Would love to catch up sometimes',
         isRead: true,
-        sentAt: 1551133930594,
+        sentAt: new Date(2020, 8, 5),
         to: 'momo@momo.com',
         from: 'lala@lolo.com',
         isSelected: false
@@ -59,7 +59,7 @@ var emails = [
         subject: 'Call me',
         body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda quibusdam repellat iure fugiat non qui consequatur optio cumque. Delectus error natus fugit harum. Neque incidunt iusto atque suscipit et eos',
         isRead: false,
-        sentAt: 1551133930594,
+        sentAt: new Date(2020, 4, 10),
         to: 'momo@momo.com',
         from: 'lala@lolo.com',
         isSelected: false
@@ -79,7 +79,7 @@ var emails = [
         subject: 'Hi there',
         body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda quibusdam repellat iure fugiat non qui consequatur optio cumque. Delectus error natus fugit harum. Neque incidunt iusto atque suscipit et eos',
         isRead: false,
-        sentAt: 1551133930594,
+        sentAt: Date.now(),
         to: 'momo@momo.com',
         from: 'lala@lolo.com',
         isSelected: false

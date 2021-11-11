@@ -2,24 +2,26 @@ export default {
     props: ['email'],
     name: 'email-preview',
     template: `
-        <section class="email-preview" @click="changePreview">
-            <input type="checkbox">
+        <section class="email-preview">
             <div class="email-sender">   
                 <img src="/img/email-img/sender.png" class="sender-img">
                 <h3>{{senderName}} </h3>
             </div>
-            <h3>{{email.subject}} </h3>
-            <p v-if="isShortText" class="email-body" :class="prevClass">{{shortText}}</p>
-            <p v-else class="email-body" :class="prevClass">{{longTxt}}</p>
+            <div @click="changePreview" class="email-display">
+                <h3>{{email.subject}} </h3>
+                <p v-if="isShortText" class="email-body" :class="prevClass">{{shortText}}</p>
+                <p v-else class="email-body" :class="prevClass">{{longTxt}}</p>
+            </div>
             <div class="email-actions">
                 <p @click="deleteEmail">🗑️</p>
-                <p @click="changeReadingStatus"><i class="far fa-envelope"></i></p>
+                <p @click="changeReadingStatus">{{readingStatus}}</p>
             </div>
+            <p>{{sentAt}}</p>
         </section>
     `,
     data() {
         return {
-            longTxt: this.email.body, 
+            longTxt: this.email.body,
             isShortText: true
         }
     },
@@ -35,10 +37,14 @@ export default {
         },
         shortText() {
             if (this.longTxt.split(' ').length < 20) return this.longTxt
-            return this.longTxt.split(' ').slice(0,10).join(' ') + ' ...'
+            return this.longTxt.split(' ').slice(0, 10).join(' ') + ' ...'
         },
         prevClass() {
             if (this.longTxt.split(' ').length > 20) return 'longTxt'
+        },
+        sentAt() {
+            const month = new Date(this.email.sentAt).toString().slice(4,10) 
+            return month
         }
     },
     methods: {

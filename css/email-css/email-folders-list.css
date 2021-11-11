@@ -9,6 +9,8 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+    font-family: Roboto;
+    color: #5b5b5b;
 }
 
 .new-mail {

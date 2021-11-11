@@ -7,7 +7,7 @@ import emailFilter from '../cmps-email/email-filter.cmp.js'
 export default {
     template: `
         <section v-if="emails" class="email-page">
-            <email-filter @filtered="setFilter"/>
+            <email-filter @filtered="setFilter" @sortDate="sortDate" @sortTitle="sortTitle" />
             <email-folders-list @type="setType" :unread="unreadEmails" @add="addEmail"/>
             <email-list :emails="emailsToShow" @delete="deleteEmail"/>
         </section>
@@ -20,7 +20,8 @@ export default {
                 read: null,
             },
             folders: null,
-            typeSelected: 'inbox'
+            typeSelected: 'inbox',
+            sortDateSTB: true
         }
     },
     components: {
@@ -71,6 +72,23 @@ export default {
             this.loadEmails()
             this.setFolders()
             this.emailsByType()
+        },
+        sortDate() {
+            if (this.sortDateSTB) {
+                this.emails.sort((a, b) => {
+                    return new Date(a.sentAt) - new Date(b.sentAt)
+                })
+            } else {
+                this.emails.sort((a, b) => {
+                    return new Date(b.sentAt) - new Date(a.sentAt)
+                })
+            }
+            this.sortDateSTB = !this.sortDateSTB
+        },
+        sortTitle() {
+            this.emails.sort((a, b) => {
+                return (a.subject.toLowerCase()>b.subject.toLowerCase()) ? 1 : -1
+            })
         }
 
     },
