@@ -1,4 +1,5 @@
 import { noteService } from "../services/note-service.js";
+import { storageService } from "../services/async-storage-service.js";
 import { router } from "../routes.js";
 import noteList from "../cmps-notes/note-list.cmp.js";
 import noteFilter from "../cmps-notes/note-filter.cmp.js";
@@ -25,6 +26,7 @@ export default {
       notes: null,
       inputMsg: null,
       newNote: null,
+      newNoteType: `note-txt`,
       filterBy: {
         txt: null,
         type: null,
@@ -43,11 +45,16 @@ export default {
       this.filterBy.type = filterBy.type;
     },
     createNewNote(ev) {
-      console.log(this.newNote);
       var txt = ev.target.value;
-      console.log(txt);
-      this.newNote = noteService.createNote();
-      router.push(`note/` + this.newNote.id+`/edit`);
+      this.newNote.type = this.newNoteType;
+      if (
+        this.newNote.type === "note-image" ||
+        this.newNote.type === "note-video"
+      ) {
+        this.newNote.info.url = txt;
+      } else this.newNote.info.title = txt;
+      storageService.push("notes", this.newNote);
+      router.push(`note/` + this.newNote.id + `/new`);
     },
     loadNotes() {
       noteService.query().then((notes) => {
@@ -69,11 +76,12 @@ export default {
           this.inputMsg = `Enter comma seperated line...`;
           break;
       }
-      this.newNote.type = `note` + val;
+      this.newNoteType = `note-` + val;
     },
     pinNote(id) {
       noteService.getById(id).then((note) => {
         noteService.remove(note.id).then(() => {
+          note.isPinned = true;
           noteService.addFirst(note).then(() => {
             this.loadNotes();
           });

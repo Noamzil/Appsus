@@ -82,6 +82,7 @@ i:hover {
   box-shadow: 0 0 8px grey;
 }
 
+<<<<<<< HEAD
 
 .input-container {
   margin-top: 50px;
@@ -91,4 +92,9 @@ i:hover {
   align-items: center;
   justify-content: end;
   margin-right: 50px;
+=======
+.input-container {
+  margin: auto;
+  justify-content: center;
+>>>>>>> 6da3a401f675f9a685345d80bacd08babbd7721e
 }

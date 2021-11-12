@@ -9,23 +9,28 @@ import bookDetails from '../js/pages/book-details.cmp.js'
 
 const routes = [
   {
-    path: '/',
+    path: "/",
     component: homePage,
   },
   {
-    path: '/note',
+    path: "/note",
+    name: 'note',
     component: notesPage,
   },
   {
-    path: '/note/:noteId?/edit',
+    path: "/note/:noteId?/edit",
     component: noteEdit,
   },
   {
-    path: '/email',
+    path: "/note/:noteId?/new",
+    component: noteCreate,
+  },
+  {
+    path: "/email",
     component: emailApp,
   },
   {
-    path: '/email/:emailId?',
+    path: "/email/:emailId?",
     component: emailDetails,
   },
   {

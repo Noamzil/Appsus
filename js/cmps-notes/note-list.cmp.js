@@ -1,5 +1,5 @@
 import noteTxt from "./notes-types.cmp/note-text.cmp.js";
-import noteImg from "./notes-types.cmp/note-img.cmp.js";
+import noteImage from "./notes-types.cmp/note-img.cmp.js";
 import noteTodos from "./notes-types.cmp/note-todo.cmp.js";
 import noteVideo from "./notes-types.cmp/note-video.cmp.js";
 import { noteService } from "../services/note-service.js";
@@ -14,7 +14,7 @@ export default {
         <div class="note-container" :style="{ backgroundColor: note.style.backgroundColor}" >
             <component @deleteTodo="deleteTodoLine($event,note)" class="note-description-container" :is="note.type" :note="note"/> </component>
             <div class="note-icons">
-              <i @click="pinNote(note.id)" title="Pin note" class="fas fa-thumbtack"></i>
+              <i @click="pinNote(note.id)" title="Pin note" class="fas fa-thumbtack" ></i>
               <div class="font-col-container">
                 <input v-model="note.style.backgroundColor" title="Change color" class="font-color" @input="changeNoteColor(note)" type="color"/>
                 <i class="fas fa-palette"></i>
@@ -31,6 +31,7 @@ export default {
     `,
   methods: {
     pinNote(noteId) {
+      noteService.getById(noteId);
       this.$emit("pin", noteId);
     },
     changeNoteColor(note) {
@@ -58,7 +59,7 @@ export default {
   },
   components: {
     noteTxt,
-    noteImg,
+    noteImage,
     noteTodos,
     noteVideo,
     noteService,
