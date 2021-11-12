@@ -81,10 +81,16 @@ export default {
     pinNote(id) {
       noteService.getById(id).then((note) => {
         noteService.remove(note.id).then(() => {
-          note.isPinned = true;
-          noteService.addFirst(note).then(() => {
-            this.loadNotes();
-          });
+          note.isPinned = !note.isPinned;
+          if (note.isPinned) {
+            noteService.addFirst(note).then(() => {
+              this.loadNotes();
+            });
+          } else {
+            noteService.addLast(note).then(() => {
+              this.loadNotes();
+            });
+          }
         });
       });
     },

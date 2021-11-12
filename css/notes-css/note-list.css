@@ -63,17 +63,24 @@ i:hover {
   display: inline;
 }
 
-.note-todo ul,li,p,i{
+.note-todo ul,
+li,
+p,
+i {
   background: transparent;
 }
 
-.note-container{
-padding: 15px;
-border-radius: 5px;
-box-shadow: 0 0 8px grey;
+.note-container {
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 0 8px grey;
 }
 
 .input-container {
   margin: auto;
   justify-content: center;
+}
+
+.yellow {
+  color: yellow;
 }

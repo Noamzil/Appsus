@@ -12,6 +12,7 @@ export const noteService = {
   createNote,
   addFirst,
   isNewNote,
+  addLast,
 };
 
 function query() {
@@ -31,6 +32,9 @@ function save(note) {
 
 function addFirst(note) {
   return storageService.unshift(NOTES_KEY, note);
+}
+function addLast(note) {
+  return storageService.push(NOTES_KEY, note);
 }
 
 function getById(noteId) {

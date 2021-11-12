@@ -14,7 +14,7 @@ export default {
         <div class="note-container" :style="{ backgroundColor: note.style.backgroundColor}" >
             <component @deleteTodo="deleteTodoLine($event,note)" class="note-description-container" :is="note.type" :note="note"/> </component>
             <div class="note-icons">
-              <i @click="pinNote(note.id)" title="Pin note" class="fas fa-thumbtack" ></i>
+              <i @click="pinNote(note.id)" title="Pin note" class="fas fa-thumbtack"  v-bind:class="{ yellow: note.isPinned }" ></i>
               <div class="font-col-container">
                 <input v-model="note.style.backgroundColor" title="Change color" class="font-color" @input="changeNoteColor(note)" type="color"/>
                 <i class="fas fa-palette"></i>
@@ -31,7 +31,6 @@ export default {
     `,
   methods: {
     pinNote(noteId) {
-      noteService.getById(noteId);
       this.$emit("pin", noteId);
     },
     changeNoteColor(note) {
