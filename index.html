@@ -1,18 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="./css/app/main.css">
-    <script src="https://kit.fontawesome.com/c1e2a2c686.js" crossorigin="anonymous"></script>
-    </head>
 
-  <body>
-    <div id="app"></div>
-    <script src="./js/lib/vue.js"></script>
-    <script src="./js/lib/vue-router.js"></script>
-    <script type="module" src="./js/main.js"></script>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MemeGen</title>
+    <link rel="icon" href="./img/logo3.jpg">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/home-page.css">
+    <link rel="stylesheet" href="./css/edit-page.css">
+
+</head>
+
+<body onload="onInit()">
+    <header class="main-header">
+        <div class="header-container main-layout flex">
+            <img class="header-logo" src="./img/Untitled_Artwork1.png" onclick="onGoToHomePage()">
+            <nav class="main-nav flex">
+                <div class="gallery" onclick="onGoToHomePage()">Gallery</div>
+                <div class="saved-memes" onclick="savedMemes()">Memes</div>
+                <img class="hamburger-sign" src="./img/hamburger1.png" onclick="openMenu()">
+            </nav>
+        </div>
+    </header>
+
+    <div class="home-page">
+        <section class="keywords-filter-container main-layout flex">
+            <img class="x-sign" src="/img/X.png" onclick="closeMenu()">
+            <input class="keyword-search" type="search" placeholder="Enter search keyword"
+                onchange="onFilterImg(value)">
+            <div class="keywords-container flex">
+                <ul class="keywords clean-list flex"></ul>
+                <a class="more-btn" onclick="onMoreKeywords()">More..</a>
+                <a class="less-btn" onclick=" onRenderKeyWords()" hidden>Less</a>
+            </div>
+        </section>
+        <main>
+            <div class="gallery-container flex"></div>
+        </main>
+        <footer class="flex">
+            <img class="footer-logo" src="./img/LOGO.png">
+            <h5 class="footer-copyrights">all rights reserved 2019</h5>
+        </footer>
+    </div>
+
+    <div class="edit-page" hidden onload="onInit()">
+        <div class="edit-container flex">
+            <canvas height="600" width="600" id="my-canvas" onmousedown="onDown(event)" onmousemove="onMove(event)"
+                onmouseup="onUp()" ontouchmove="onMove(event)" ontouchstart="onDown(event)"
+                ontouchend="onUp()"></canvas>
+
+            <div class="input-container flex">
+                <input type="text" class="meme-text line-0" placeholder="First line" onclick="getLineIdx(0)"
+                    oninput="drawTextFromInput(value,80,0)">
+                <input type="text" class="meme-text line-1" placeholder="Second line" onclick="getLineIdx(1)"
+                    oninput="drawTextFromInput(value,400,1)">
+                <div class="edit-cont-btn flex">
+                    <img class="img-icon" src="./img/ICONS/up.png" onclick="onMoveLine('up')">
+                    <img class="img-icon" src="./img/ICONS/down.png" onclick="onMoveLine('down')">
+                    <img class="img-icon" src="./img/ICONS/increase font - icon.png"
+                        onclick="onIncreaseDecreaseTextSize('bigger')">
+                    <img class="img-icon" src="./img/ICONS/decrease font - icon.png"
+                        onclick="onIncreaseDecreaseTextSize('smaller')">
+                    <section>
+                        <img class="img-icon" src="./img/ICONS/align-to-left.png" onclick="onAlignText('left')">
+                        <img class="img-icon" src="./img/ICONS/center-text-alignment.png"
+                            onclick="onAlignText('center')">
+                        <img class="img-icon" src="./img/ICONS/align-to-right.png" onclick="onAlignText('right')">
+                    </section>
+                    <select class="select-font" onchange="onChangeFont(value)">
+                        <option>Impact</option>
+                        <option>Arial</option>
+                        <option>Verdana</option>
+                        <option>Times New Roman</option>
+                        <option>Courier New</option>
+                    </select>
+                </div>
+                <div class="color-input-container flex">
+                    Text color <input class="color-input" type="color" oninput="onChangeTextColor(value)"
+                        value="#ffffff">
+                    Border color<input class="color-input" type="color" oninput="onChangeStrokeColor(value)">
+                </div>
+            </div>
+        </div>
+
+        <div class="save-share-container flex">
+            <a href="#" onclick="downloadCanvas(this)">Download</a>
+        </div>
+
+        <div class="saved-memes-page">
+            <main>
+                <div class="saved-memes-gallery"></div>
+            </main>
+        </div>
+
+        <script src="./js/storage-service.js"></script>
+        <script src="./js/home-service.js"></script>
+        <script src="./js/home-controller.js"></script>
+        <script src="./js/edit-service.js"></script>
+        <script src="./js/edit-controller.js"></script>
+        <script src="./js/saved-memes.js"></script>
+</body>
+
 </html>
