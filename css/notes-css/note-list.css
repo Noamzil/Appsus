@@ -23,13 +23,22 @@ a {
 }
 
 .note-input {
-  width: 500px;
+  width: 1000px;
   height: 40px;
+}
+
+.note-input-search {
+  position: relative;
+  top: -100px;
+  right: 600px;
+  padding: 5px;
+  width: 250px;
 }
 
 .input-icons {
   font-size: 1.5rem;
 }
+
 .input-icons i {
   margin-right: 20px;
 }
@@ -63,24 +72,23 @@ i:hover {
   display: inline;
 }
 
-.note-todo ul,li,p,i{
+.note-todo ul, li, p, i {
   background: transparent;
 }
 
-.note-container{
-padding: 15px;
-border-radius: 5px;
-box-shadow: 0 0 8px grey;
+.note-container {
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 0 8px grey;
 }
 
-/* .input-container {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  margin-left: 20px;
-  justify-content: center;
-} */
+
 .input-container {
-  margin: auto;
-  justify-content: center;
+  margin-top: 50px;
+}
+.filetr-container {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  margin-right: 50px;
 }

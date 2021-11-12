@@ -39,10 +39,8 @@ export default {
     },
     created() {
         const { bookId } = this.$route.params
-        console.log(bookId);
         bookService.getById(bookId)
             .then(book => {
-                console.log(book);
                 this.book = book})
 
     },

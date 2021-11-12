@@ -8,7 +8,7 @@
 
 .welcome-page {
     font-size: 50px;
-    padding:30px 0;
+    padding: 30px 0;
     font-family: cursive;
 }
 
@@ -17,11 +17,23 @@
     justify-content: center;
     align-items: center;
     font-size: 100px;
-    gap: 100px;
+    gap: 300px;
     margin-top: 80px;
 }
 
 .pages-icons a {
-    padding: 0 100px;
+    padding: px;
     color: grey;
+}
+
+.pages-icons .home-email:hover {
+    color: #4b8af4;
+}
+
+.pages-icons .home-keep:hover {
+    color: #ffce42;
+}
+
+.pages-icons .home-book:hover {
+    color: #df5347;
 }
