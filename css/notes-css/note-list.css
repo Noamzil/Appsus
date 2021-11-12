@@ -72,14 +72,7 @@ i:hover {
   display: inline;
 }
 
-<<<<<<< HEAD
-.note-todo ul,
-li,
-p,
-i {
-=======
 .note-todo ul, li, p, i {
->>>>>>> 85facc55a84a6390bd9a6fc04204119c75a534b3
   background: transparent;
 }
 
@@ -89,27 +82,22 @@ i {
   box-shadow: 0 0 8px grey;
 }
 
-<<<<<<< HEAD
-
 .input-container {
   margin-top: 50px;
 }
+
 .filetr-container {
   display: flex;
   align-items: center;
   justify-content: end;
   margin-right: 50px;
-=======
+}
+
 .input-container {
   margin: auto;
   justify-content: center;
-<<<<<<< HEAD
 }
 
 .yellow {
   color: yellow;
 }
-=======
->>>>>>> 6da3a401f675f9a685345d80bacd08babbd7721e
-}
->>>>>>> 85facc55a84a6390bd9a6fc04204119c75a534b3
