@@ -10,7 +10,7 @@ export default {
             <div v-if="isShortText" class="email-display" :class="longShortClass">
                 <h3 class="email-subject-list">{{email.subject}} </h3>
                 <p  class="email-body">{{shortText}}</p>
-                <p v-else class="email-body" >{{longTxt}}</p>
+                <p class="email-body" hidden>{{longTxt}}</p>
             </div>
             <div class="email-actions">
                 <p @click="deleteEmail"><i class="far fa-trash-alt"></i></p>

@@ -102,10 +102,7 @@ i:hover {
   display: inline;
 }
 
-.note-todo ul,
-li,
-p,
-i {
+.note-todo ul, li, p, i {
   background: transparent;
 }
 
@@ -116,6 +113,13 @@ i {
   box-shadow: 0 0 8px grey;
 }
 
+<<<<<<< HEAD
+=======
+.input-container {
+  margin-top: 50px;
+}
+
+>>>>>>> 8ddec3f1cc6a4e2f3984177f645917323ba5eaf4
 .filetr-container {
   display: inline-flex;
   align-items: center;

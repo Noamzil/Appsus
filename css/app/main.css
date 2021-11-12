@@ -4,10 +4,16 @@
 @import url(/css/email-css/email-details.css);
 @import url(/css/app/home-page.css);
 @import url(/css/books-css/books.css);
-
+@import url(/css/email-css/email.css);
+@import url(/css/email-css/email-list.css);
+@import url(/css/notes-css/note-list.css);
+@import url(/css/email-css/email-folders-list.css);
+@import url(/css/app/home-page.css);
+@import url(/css/app/app-header.css);
+;
 @font-face {
     font-family: Roboto;
-    src: url(/fonts/Roboto-Regular.ttf);
+    src: url(./fonts/Roboto-Regular.ttf);
 }
 
 * {
