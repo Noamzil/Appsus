@@ -81,6 +81,7 @@ export default {
     pinNote(id) {
       noteService.getById(id).then((note) => {
         noteService.remove(note.id).then(() => {
+          note.isPinned = true;
           noteService.addFirst(note).then(() => {
             this.loadNotes();
           });
