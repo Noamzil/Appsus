@@ -76,3 +76,23 @@
     text-align: start;
     
 }
+
+
+@media (max-width:1300px) {
+.emails-list {
+    background-color: rgb(154, 231, 154);
+}
+.email-preview .email-body {
+    max-width: 350px;
+}
+
+}
+@media (max-width:1000px) {
+.emails-list {
+    background-color: rgb(255, 198, 250);
+}
+.email-preview .email-body {
+    max-width: 270px;
+}
+
+}
