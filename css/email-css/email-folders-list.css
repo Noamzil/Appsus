@@ -32,3 +32,6 @@
     font-weight: bold;
     padding-left: 10px;
 }
+.email-folders-list p:hover {
+    color: black; 
+}

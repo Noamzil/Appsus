@@ -1,10 +1,11 @@
-import homePage from "./pages/appsus-home-page.cmp.js";
-import notesPage from "./pages/note-app.cmp.js";
-import emailApp from "./pages/email-app.cmp.js";
-import emailDetails from "./cmps-email/email-details.cmp.js";
-import noteEdit from "./cmps-notes/note-edit.cmp.js";
-import noteCreate from "./cmps-notes/note-create.cmp.js";
-import { noteService } from "./services/note-service.js";
+import homePage from './pages/appsus-home-page.cmp.js';
+import notesPage from './pages/note-app.cmp.js';
+import emailApp from './pages/email-app.cmp.js';
+import emailDetails from './cmps-email/email-details.cmp.js';
+import noteEdit from './cmps-notes/note-edit.cmp.js';
+import bookApp from '../js/pages/book-app.cmp.js'
+import bookDetails from '../js/pages/book-details.cmp.js'
+
 
 const routes = [
   {
@@ -31,6 +32,14 @@ const routes = [
   {
     path: "/email/:emailId?",
     component: emailDetails,
+  },
+  {
+    path: '/book',
+    component: bookApp
+  },
+  {
+    path: '/book/:bookId?',
+    component: bookDetails
   },
 ];
 

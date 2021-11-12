@@ -2,6 +2,8 @@
 @import url(/css/app/app-header.css);
 @import url(/css/email-css/new-email.css);
 @import url(/css/email-css/email-details.css);
+@import url(/css/app/home-page.css);
+@import url(/css/books-css/books.css);
 
 @font-face {
     font-family: Roboto;

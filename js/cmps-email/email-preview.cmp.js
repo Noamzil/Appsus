@@ -2,16 +2,15 @@ export default {
     props: ['email'],
     name: 'email-preview',
     template: `
-        <section class="email-preview">
+        <section class="email-preview"  @click="changePreview">
             <div class="email-sender">   
                <h1 class="sender-img">  {{firstLetter}}</h1>
                 <h3 class="sender-name" >{{senderName}} </h3>
-                <!-- :style=readStyle -->
             </div>
-            <div @click="changePreview" class="email-display">
+            <div class="email-display" :class="longShortClass">
                 <h3 class="email-subject-list">{{email.subject}} </h3>
-                <p v-if="isShortText" class="email-body" :class="prevClass">{{shortText}}</p>
-                <p v-else class="email-body" :class="prevClass">{{longTxt}}</p>
+                <p v-if="isShortText" class="email-body">{{shortText}}</p>
+                <p v-else class="email-body" >{{longTxt}}</p>
             </div>
             <div class="email-actions">
                 <p @click="deleteEmail"><i class="far fa-trash-alt"></i></p>
@@ -38,7 +37,7 @@ export default {
             if (this.longTxt.split(' ').length < 20) return this.longTxt
             return this.longTxt.split(' ').slice(0, 10).join(' ') + ' ...'
         },
-        prevClass() {
+        longShortClass() {
             if (this.longTxt.split(' ').length > 20) return 'longTxt'
         },
         sentAt() {

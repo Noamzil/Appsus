@@ -4,8 +4,9 @@ export default {
   name: `note-page`,
   template: `
       <section class="note-page">
-        <input @input ="filter" v-model="filterBy.txt" class="note-input" type="text" placeholder="Search for...">
+        <input @input ="filter" v-model="filterBy.txt" class="note-input-search" type="text" placeholder="Search for...">
           <div class="filetr-container">
+          <label>Filter By:</label>
           <select v-model="filterBy.type" @change="filter">
                     <option value="">All</option>
                     <option value="note-txt">Text</option>
