@@ -98,6 +98,12 @@ i:hover {
   justify-content: center;
 }
 
+/* HELPERS */
+
 .yellow {
   color: yellow;
+}
+
+.active{
+  opacity: 0.5;
 }

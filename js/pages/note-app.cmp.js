@@ -10,10 +10,10 @@ export default {
     <section class="note-page">
         <div class="input-container">
           <div class="input-icons">
-            <i @click="changeInput('txt')" title="Text" class=" far fa-comment"></i>
-            <i @click="changeInput('image')" title="Image" class=" far fa-image"></i>
-            <i @click="changeInput('video')" title="Video" class="  fab fa-youtube"></i>
-            <i @click="changeInput('todos')" title="List" class=" fas fa-list-ul"></i>
+            <i v-bind:class="{ active: isActive[0]}" @click="changeInput('txt')" title="Text" class=" far fa-comment"></i>
+            <i v-bind:class="{ active: isActive[1]}" @click="changeInput('image')" title="Image" class=" far fa-image"></i>
+            <i v-bind:class="{ active: isActive[2]}" @click="changeInput('video')" title="Video" class="  fab fa-youtube"></i>
+            <i v-bind:class="{ active: isActive[3]}" @click="changeInput('todos')" title="List" class=" fas fa-list-ul"></i>
           </div>
           <input @keyup.enter ="createNewNote" class="note-input" type="text" :placeholder="inputMsg">
         </div>
@@ -27,6 +27,7 @@ export default {
       inputMsg: null,
       newNote: null,
       newNoteType: `note-txt`,
+      isActive: [false, true, true, true],
       filterBy: {
         txt: null,
         type: null,
@@ -62,21 +63,32 @@ export default {
       });
     },
     changeInput(val) {
+      this.isActiveFalse();
       switch (val) {
         case `txt`:
           this.inputMsg = `What's on your mind...`;
+          this.isActive[0] = false;
           break;
         case `image`:
           this.inputMsg = `Enter image URL...`;
+          this.isActive[1] = false;
           break;
         case `video`:
           this.inputMsg = `Enter video URL...`;
+          this.isActive[2] = false;
           break;
         case `todos`:
           this.inputMsg = `Enter comma seperated line...`;
+          this.isActive[3] = false;
           break;
       }
       this.newNoteType = `note-` + val;
+    },
+    isActiveFalse() {
+      this.isActive[0] = true;
+      this.isActive[1] = true;
+      this.isActive[2] = true;
+      this.isActive[3] = true;
     },
     pinNote(id) {
       noteService.getById(id).then((note) => {
