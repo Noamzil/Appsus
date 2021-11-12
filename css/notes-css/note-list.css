@@ -29,7 +29,6 @@ a {
 
 .note-input-search {
   position: relative;
-  top: -100px;
   right: 600px;
   padding: 5px;
   width: 250px;
@@ -47,8 +46,39 @@ i:hover {
   cursor: pointer;
 }
 
+.note-edit h3 {
+  margin-bottom: 30px;
+}
+
 .note-description-container {
-  margin: 15px;
+  margin: auto;
+  max-width: 800px;
+}
+
+.save-btn {
+  margin-bottom: 30px;
+}
+
+.note-description-container li {
+  list-style: none;
+}
+
+.note-edit-forms {
+  display: flex;
+  align-items: center;
+  padding: 40px;
+}
+
+.note-edit-forms input {
+  display: inherit;
+}
+
+.todo-edit ul {
+  padding: 0;
+}
+
+.todo-edit li {
+  list-style: none;
 }
 
 .font-color {
@@ -80,20 +110,21 @@ i {
 }
 
 .note-container {
+  max-width: 400px;
   padding: 15px;
   border-radius: 5px;
   box-shadow: 0 0 8px grey;
 }
-.input-container {
-  margin-top: 50px;
-}
+
 .filetr-container {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: end;
   margin-right: 50px;
 }
+
 .input-container {
+  margin-top: 50px;
   margin: auto;
   justify-content: center;
 }
@@ -104,6 +135,10 @@ i {
   color: yellow;
 }
 
-.active{
+.active {
   opacity: 0.5;
+}
+
+.note-img img {
+  width: 300px;
 }
