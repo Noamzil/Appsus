@@ -11,6 +11,7 @@ export const noteService = {
   getById,
   createNote,
   addFirst,
+  isNewNote,
 };
 
 function query() {
@@ -20,7 +21,6 @@ function query() {
 }
 
 function remove(noteId) {
-  console.log(`in note`);
   return storageService.remove(NOTES_KEY, noteId);
 }
 
@@ -37,6 +37,12 @@ function getById(noteId) {
   return storageService.get(NOTES_KEY, noteId);
 }
 
+function isNewNote(noteId) {
+  var ok = storageService.get(NOTES_KEY, noteId).then();
+  if (ok) return false;
+  return true;
+}
+
 function _createNotes() {
   let notes = utilService.loadFromStorage(NOTES_KEY);
   if (!notes || !notes.length) {
@@ -44,7 +50,7 @@ function _createNotes() {
     notes.push(createNote("note-txt", "Fullstack Me Baby!", "", "", ""));
     notes.push(
       createNote(
-        "note-img",
+        "note-image",
         "",
         "Bobi and Me",
         "https://dogtime.com/assets/uploads/2011/03/puppy-development.jpg",
@@ -76,7 +82,7 @@ function createNote(
   txt = null,
   title = null,
   url = null,
-  todos = null
+  todos = []
 ) {
   const note = {
     id: storageService.makeId(),

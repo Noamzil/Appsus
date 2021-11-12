@@ -7,6 +7,7 @@ export const storageService = {
   postMany,
   unshift,
   makeId,
+  push,
 };
 
 function query(entityType) {
@@ -24,6 +25,14 @@ function unshift(entityType, newEntity) {
   newEntity.id = makeId();
   return query(entityType).then((entities) => {
     entities.unshift(newEntity);
+    _save(entityType, entities);
+    return newEntity;
+  });
+}
+
+function push(entityType, newEntity) {
+  return query(entityType).then((entities) => {
+    entities.push(newEntity);
     _save(entityType, entities);
     return newEntity;
   });

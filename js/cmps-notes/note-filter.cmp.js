@@ -9,7 +9,7 @@ export default {
           <select v-model="filterBy.type" @change="filter">
                     <option value="">All</option>
                     <option value="note-txt">Text</option>
-                    <option value="note-img">Image</option>
+                    <option value="note-image">Image</option>
                     <option value="note-video">Video</option>
                     <option value="note-todos">Todo</option>
                 </select>

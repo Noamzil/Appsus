@@ -1,5 +1,5 @@
 import noteTxt from "./notes-types.cmp/note-text.cmp.js";
-import noteImg from "./notes-types.cmp/note-img.cmp.js";
+import noteImage from "./notes-types.cmp/note-img.cmp.js";
 import noteTodos from "./notes-types.cmp/note-todo.cmp.js";
 import noteVideo from "./notes-types.cmp/note-video.cmp.js";
 import { noteService } from "../services/note-service.js";
@@ -58,7 +58,7 @@ export default {
   },
   components: {
     noteTxt,
-    noteImg,
+    noteImage,
     noteTodos,
     noteVideo,
     noteService,
