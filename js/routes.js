@@ -5,6 +5,7 @@ import emailDetails from './cmps-email/email-details.cmp.js';
 import noteEdit from './cmps-notes/note-edit.cmp.js';
 import bookApp from '../js/pages/book-app.cmp.js'
 import bookDetails from '../js/pages/book-details.cmp.js'
+import noteCreate from './cmps-notes/note-create.cmp.js'
 
 
 const routes = [

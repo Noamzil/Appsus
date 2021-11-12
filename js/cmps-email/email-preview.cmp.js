@@ -7,9 +7,9 @@ export default {
                <h1 class="sender-img">  {{firstLetter}}</h1>
                 <h3 class="sender-name" >{{senderName}} </h3>
             </div>
-            <div class="email-display" :class="longShortClass">
+            <div v-if="isShortText" class="email-display" :class="longShortClass">
                 <h3 class="email-subject-list">{{email.subject}} </h3>
-                <p v-if="isShortText" class="email-body">{{shortText}}</p>
+                <p  class="email-body">{{shortText}}</p>
                 <p v-else class="email-body" >{{longTxt}}</p>
             </div>
             <div class="email-actions">
