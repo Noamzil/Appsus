@@ -6,27 +6,38 @@
 @import url(/css/books-css/books.css);
 @import url(/css/email-css/email.css);
 @import url(/css/email-css/email-list.css);
-@import url(/css/notes-css/note-list.css);
 @import url(/css/email-css/email-folders-list.css);
+@import url(/css/notes-css/note-list.css);
+@import url(/css/notes-css/note-todo.css);
+@import url(/css/notes-css/icons-container.css);
+@import url(/css/notes-css/note-create-input.css);
+@import url(/css/notes-css/note-filter.css);
+@import url(/css/notes-css/note-edit.css);
 @import url(/css/app/home-page.css);
 @import url(/css/app/app-header.css);
-;
+
 @font-face {
-    font-family: Roboto;
-    src: url(./fonts/Roboto-Regular.ttf);
+  font-family: Roboto;
+  src: url(/fonts/Roboto-Regular.ttf);
 }
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    margin: 0;
-    text-align: center;
-    font-family: Arial
+  margin: 0;
+  text-align: center;
+  font-family: Arial;
 }
 
-h1, h2, h3, h4, h5, h6, p {
-    margin: 0;
-    padding: 0;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
 }

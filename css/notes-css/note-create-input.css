@@ -1,0 +1,15 @@
+.input-container {
+  margin-top: 50px;
+  margin: auto;
+  justify-content: center;
+}
+
+.input-icons {
+  font-size: 1.5rem;
+}
+
+.note-input {
+  margin-top: 20px;
+  width: 70%;
+  height: 40px;
+}

@@ -1,0 +1,23 @@
+.todo-edit ul {
+  padding: 0;
+}
+
+.todo-edit li {
+  list-style: none;
+}
+
+.todo-line {
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.todo-list {
+  padding: 0;
+}
+
+.note-todo ul,
+li,
+p,
+i {
+  background: transparent;
+}

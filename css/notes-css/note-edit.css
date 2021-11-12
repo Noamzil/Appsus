@@ -1,0 +1,27 @@
+.note-edit-forms {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 40px;
+  justify-content: space-evenly;
+}
+
+.note-edit-forms input {
+  display: inherit;
+  margin-bottom: 20px;
+}
+
+.note-edit h3 {
+  margin-bottom: 30px;
+}
+
+.edit-note-container {
+  border: 2px solid black;
+  padding: 20px;
+  box-shadow: 0 0 8px grey;
+}
+
+.save-btn {
+  margin-bottom: 20px;
+  margin-top: 30px;
+}

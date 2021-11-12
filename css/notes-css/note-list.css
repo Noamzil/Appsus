@@ -1,7 +1,3 @@
-.far {
-  color: black;
-}
-
 .notes-list {
   display: flex;
   flex-wrap: wrap;
@@ -20,120 +16,18 @@
   padding: 0;
 }
 
-.fas {
-  width: 30px;
-  height: 20px;
-}
-
-.note-input {
-  margin-top: 20px;
-  width: 70%;
-  height: 40px;
-}
-
-.note-input-search {
-  padding: 5px;
-  width: 250px;
-  margin-left: 40px;
-  float: left;
-}
-
-.input-icons {
-  font-size: 1.5rem;
-}
-
-.input-icons i {
-  margin-right: 20px;
-}
-
-i:hover {
-  cursor: pointer;
-}
-
-.note-edit h3 {
-  margin-bottom: 30px;
-}
-
 .note-description-container {
   margin: auto;
   max-width: 800px;
-}
-
-.save-btn {
-  margin-bottom: 20px;
-  margin-top: 30px;
-}
-.note-page {
-  margin-top: 20px;
-  margin-bottom: 40px;
 }
 
 .note-description-container li {
   list-style: none;
 }
 
-.note-edit-forms {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  padding: 40px;
-  justify-content: space-evenly;
-}
-
-.edit-note-container {
-  border: 2px solid black;
-  padding: 20px;
-  box-shadow: 0 0 8px grey;
-}
-
-.note-edit-forms input {
-  display: inherit;
-  margin-bottom: 20px;
-}
-
-.todo-edit ul {
-  padding: 0;
-}
-
-.todo-edit li {
-  list-style: none;
-}
-
-.font-color {
-  z-index: 10;
-  cursor: pointer;
-  width: 30px;
-  height: 20px;
-  opacity: 0;
-  position: absolute;
-  left: 0;
-  top: 0;
-}
-
-.todo-line {
-  display: inline-block;
-  margin-bottom: 20px;
-}
-
-.todo-list {
-  padding: 0;
-}
-
-.fa-palette {
-  margin-left: auto;
-  margin-right: 0;
-}
-
-.font-col-container {
-  position: relative;
-  display: inline;
-}
-
-.note-todo ul,
-li,
-p,
-i {
-  background: transparent;
+.note-page {
+  margin-top: 20px;
+  margin-bottom: 40px;
 }
 
 .note-container {
@@ -152,24 +46,8 @@ i {
   margin-bottom: 20px;
 }
 
-.note-icons {
-  margin-top: 20px;
-}
-
-.note-icons i{
-  margin-inline-end: 15px;
-}
-
-.filetr-container {
-  display: block;
-  float: right;
-  margin-right: 40px;
-}
-
-.input-container {
-  margin-top: 50px;
-  margin: auto;
-  justify-content: center;
+.note-img img {
+  width: 300px;
 }
 
 /* HELPERS */
@@ -182,12 +60,10 @@ i {
   opacity: 0.5;
 }
 
-.note-img img {
-  width: 300px;
-}
+/* MEDIA */
 
 @media (max-width: 500px) {
-  .filetr-container {
+  .filter-container {
     position: relative;
     float: none;
     width: 100%;

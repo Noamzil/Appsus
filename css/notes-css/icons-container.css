@@ -1,0 +1,46 @@
+.far {
+  color: black;
+}
+
+.fas {
+  width: 30px;
+  height: 20px;
+}
+
+.input-icons i {
+  margin-right: 20px;
+}
+
+i:hover {
+  cursor: pointer;
+}
+
+.fa-palette {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.note-icons {
+  margin-top: 20px;
+}
+
+.note-icons i {
+  margin-inline-end: 15px;
+}
+
+
+.font-color {
+  z-index: 10;
+  cursor: pointer;
+  width: 30px;
+  height: 20px;
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.font-col-container {
+  position: relative;
+  display: inline;
+}
