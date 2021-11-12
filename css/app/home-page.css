@@ -1,0 +1,27 @@
+.home-page {
+    /* background-image: url(/img/background.jpg); */
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.welcome-page {
+    font-size: 50px;
+    padding:30px 0;
+    font-family: cursive;
+}
+
+.pages-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100px;
+    gap: 100px;
+    margin-top: 80px;
+}
+
+.pages-icons a {
+    padding: 0 100px;
+    color: grey;
+}
