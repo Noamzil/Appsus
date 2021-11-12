@@ -7,10 +7,10 @@ export default {
                <h1 class="sender-img">  {{firstLetter}}</h1>
                 <h3 class="sender-name" >{{senderName}} </h3>
             </div>
-            <div v-if="isShortText" class="email-display" :class="longShortClass">
+            <div  class="email-display" :class="longShortClass">
                 <h3 class="email-subject-list">{{email.subject}} </h3>
-                <p  class="email-body">{{shortText}}</p>
-                <p class="email-body" hidden>{{longTxt}}</p>
+                <p v-if="isShortText" class="email-body">{{shortText}}</p>
+                <p v-else class="email-body email-body-longTxt">{{longTxt}}</p>
             </div>
             <div class="email-actions">
                 <p @click="deleteEmail"><i class="far fa-trash-alt"></i></p>
@@ -38,6 +38,7 @@ export default {
             return this.longTxt.split(' ').slice(0, 10).join(' ') + ' ...'
         },
         longShortClass() {
+            return {'longTxt':this.longTxt.split(' ').length > 20, 'longTextDiv': !this.isShortText }
             if (this.longTxt.split(' ').length > 20) return 'longTxt'
         },
         sentAt() {
@@ -46,7 +47,7 @@ export default {
         },
         firstLetter() {
             return this.email.from.slice(0,1).toUpperCase()
-        }
+        },
     },
     methods: {
         changeReadingStatus() {
