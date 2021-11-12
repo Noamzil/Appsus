@@ -1,4 +1,4 @@
-a {
+.far {
   color: black;
 }
 
@@ -156,6 +156,10 @@ i {
   margin-top: 20px;
 }
 
+.note-icons i{
+  margin-inline-end: 15px;
+}
+
 .filetr-container {
   display: block;
   float: right;
@@ -188,11 +192,12 @@ i {
     float: none;
     width: 100%;
     display: flow-root;
-    top: 30 px;
+    top: 30px;
   }
 
   .note-input-search {
     float: none;
+    margin: 0;
   }
 
   .notes-list {
