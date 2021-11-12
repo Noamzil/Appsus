@@ -5,7 +5,7 @@ export default {
         <section class="email-folders-list">
             <div class="new-mail" @click="newMail">
                 <h3> Compose </h3>
-                <img src="/img/email-img/compose.png">
+                <img src="./img/email-img/compose.png">
             </div>
                 <p @click="changeTxt('inbox')"> <i class="fas fa-inbox"></i> Inbox ({{unread}})</p>
                 <p @click="changeTxt('sent')"><i class="fas fa-paper-plane"></i> Sent</p>    
