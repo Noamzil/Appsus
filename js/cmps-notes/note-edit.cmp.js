@@ -21,8 +21,8 @@ export default {
                   </li>
               </ul>
               <button @click="addTodo">Add line</button>
+              </div>
               <button>Save</button>
-          </div>
             <component class="note-description-container" :is="noteToEdit.type" :note="noteToEdit"/> </component>
          </form>
       </template>

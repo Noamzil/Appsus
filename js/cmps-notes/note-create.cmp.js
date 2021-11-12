@@ -51,7 +51,6 @@ export default {
       noteService.getById(noteId).then((note) => {
         this.noteToEdit = note;
       });
-      noteService.remove(noteId);
     },
     isUrlHere() {
       return (
@@ -70,6 +69,10 @@ export default {
       noteService.save(this.noteToEdit);
       router.push({ name: "note" });
     },
+  },
+  destroyed() {
+    var info=this.noteToEdit.info
+    if (!info.txt && !info.title && !info.url && !info.todos.length) noteService.remove(this.noteToEdit.id);
   },
   components: {
     noteTxt,

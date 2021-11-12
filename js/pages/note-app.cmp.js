@@ -45,12 +45,14 @@ export default {
       this.filterBy.type = filterBy.type;
     },
     createNewNote(ev) {
-      console.log(this.newNote);
       var txt = ev.target.value;
-      console.log(txt);
-      this.newNote = noteService.createNote();
       this.newNote.type = this.newNoteType;
-      console.log(this.newNoteType);
+      if (
+        this.newNote.type === "note-image" ||
+        this.newNote.type === "note-video"
+      ) {
+        this.newNote.info.url = txt;
+      } else this.newNote.info.title = txt;
       storageService.push("notes", this.newNote);
       router.push(`note/` + this.newNote.id + `/new`);
     },
