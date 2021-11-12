@@ -9,26 +9,30 @@ export default {
     <section class="note-edit app-main">
     <h3>Edit the note</h3>
       <form class="note-edit-forms" v-if="noteToEdit" @submit.prevent="save" >
-      <div class="edit-lines-container">
-      <input v-model="noteToEdit.info.title" type="text" placeholder="Title">
-      <template v-if="noteToEdit.type != 'note-todos'" >
-      <input v-if="isUrlHere()" v-model="noteToEdit.info.url" type="text" placeholder="URL">
-      <input v-model="noteToEdit.info.txt" type="text" placeholder="Text">
-      </template>
-      <div class="todo-edit" v-if="noteToEdit.type === 'note-todos'">
-      <ul>
-      <li v-for="todo in noteToEdit.info.todos">
-      <input v-model="todo.txt" type="text" placeholder="Text">
-      </li>
-      </ul>
-      <button @click="addTodo">Add line</button>
-      </div>
-      </div>
-      <div>
-      <component class="note-description-container" :is="noteToEdit.type" :note="noteToEdit"/> </component>
-      <button class="save-btn">Save</button>
-            </div>
-       </form>
+       <div class="edit-lines-container">
+       <label>Tilte:</label>
+        <input v-model="noteToEdit.info.title" type="text" placeholder="Title">
+        <template v-if="noteToEdit.type != 'note-todos'" >
+        <label v-if="isUrlHere()">URL:</label>
+          <input v-if="isUrlHere()" v-model="noteToEdit.info.url" type="text" placeholder="URL">
+          <label>Text:</label>
+          <input v-model="noteToEdit.info.txt" type="text" placeholder="Text">
+        </template>
+        <div class="todo-edit" v-if="noteToEdit.type === 'note-todos'">
+         <ul>
+           <li v-for="todo in noteToEdit.info.todos">
+           <label>Todo:</label>
+             <input v-model="todo.txt" type="text" placeholder="Text">
+            </li>
+          </ul>
+          <button @click="addTodo">Add line</button>
+        </div>
+       </div>
+       <div class="edit-note-container">
+        <component class="note-description-container" :is="noteToEdit.type" :note="noteToEdit"/> </component>
+        <button class="save-btn">Save</button>
+       </div>
+      </form>
     </section>
     `,
   data() {
@@ -48,7 +52,7 @@ export default {
     },
     isUrlHere() {
       return (
-        this.noteToEdit.type === "note-img" ||
+        this.noteToEdit.type === "note-image" ||
         this.noteToEdit.type === "note-video"
       );
     },

@@ -1,6 +1,6 @@
 export default {
   props: ["todo"],
   template: `
-<p>{{todo.txt}}</p>
+<p class="todo-line">{{todo.txt}}</p>
         `,
 };

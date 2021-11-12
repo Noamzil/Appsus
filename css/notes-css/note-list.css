@@ -4,9 +4,12 @@ a {
 
 .notes-list {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   gap: 20px;
+  margin-top: 80px;
+  padding-left: 40px;
 }
 
 .notes-list li {
@@ -23,15 +26,16 @@ a {
 }
 
 .note-input {
-  width: 1000px;
+  margin-top: 20px;
+  width: 70%;
   height: 40px;
 }
 
 .note-input-search {
-  position: relative;
-  right: 600px;
   padding: 5px;
   width: 250px;
+  margin-left: 40px;
+  float: left;
 }
 
 .input-icons {
@@ -56,7 +60,12 @@ i:hover {
 }
 
 .save-btn {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
+  margin-top: 30px;
+}
+.note-page {
+  margin-top: 20px;
+  margin-bottom: 40px;
 }
 
 .note-description-container li {
@@ -65,12 +74,21 @@ i:hover {
 
 .note-edit-forms {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   padding: 40px;
+  justify-content: space-evenly;
+}
+
+.edit-note-container {
+  border: 2px solid black;
+  padding: 20px;
+  box-shadow: 0 0 8px grey;
 }
 
 .note-edit-forms input {
   display: inherit;
+  margin-bottom: 20px;
 }
 
 .todo-edit ul {
@@ -92,6 +110,15 @@ i:hover {
   top: 0;
 }
 
+.todo-line {
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.todo-list {
+  padding: 0;
+}
+
 .fa-palette {
   margin-left: auto;
   margin-right: 0;
@@ -102,29 +129,37 @@ i:hover {
   display: inline;
 }
 
-.note-todo ul, li, p, i {
+.note-todo ul,
+li,
+p,
+i {
   background: transparent;
 }
 
 .note-container {
   max-width: 400px;
+  min-width: 200px;
   padding: 15px;
   border-radius: 5px;
   box-shadow: 0 0 8px grey;
 }
 
-<<<<<<< HEAD
-=======
-.input-container {
-  margin-top: 50px;
+.note-container h4 {
+  margin-bottom: 20px;
 }
 
->>>>>>> 8ddec3f1cc6a4e2f3984177f645917323ba5eaf4
+.note-container h3 {
+  margin-bottom: 20px;
+}
+
+.note-icons {
+  margin-top: 20px;
+}
+
 .filetr-container {
-  display: inline-flex;
-  align-items: center;
-  justify-content: end;
-  margin-right: 50px;
+  display: block;
+  float: right;
+  margin-right: 40px;
 }
 
 .input-container {
@@ -145,4 +180,23 @@ i:hover {
 
 .note-img img {
   width: 300px;
+}
+
+@media (max-width: 500px) {
+  .filetr-container {
+    position: relative;
+    float: none;
+    width: 100%;
+    display: flow-root;
+    top: 30 px;
+  }
+
+  .note-input-search {
+    float: none;
+  }
+
+  .notes-list {
+    padding-left: 20 px;
+    padding-right: 20 px;
+  }
 }
