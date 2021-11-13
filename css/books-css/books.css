@@ -1,12 +1,10 @@
 /* FILTER */
 .book-filter {
     padding: 15px;
-    background-color: rgb(241, 161, 195);
 }
 
 /* BOOKS */
 .book-list {
-    background-color: rgb(212, 243, 255);
     margin: 0;
     padding: 15px;
     list-style: none;
@@ -42,7 +40,6 @@
 
 /* BOOK DETAILS */
 .book-details {
-    background-color: rgb(204, 176, 218);
     padding: 15px;
     text-align: center;
     height: 90vh;
@@ -85,7 +82,6 @@
 /* ADD REVIEW */
 
 .add-review-container {
-    background-color: rgb(141, 141, 238);
     width: 400px;
     padding: 20px;
 }
@@ -114,7 +110,6 @@
 /* FOOTER */
 
 .app-footer {
-    background-color: rgb(154, 218, 221);
     height: 50px;
     text-align: center;
     padding: 15px;

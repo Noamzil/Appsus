@@ -21,3 +21,23 @@
     display: flex;
 }
 
+@media (max-width:1150px) {
+    .email-search input {
+        width: 300px;
+    }
+}
+
+@media (max-width:870px) {
+    .email-filter {
+        margin: 0;
+        flex-wrap: wrap;
+    }
+}
+@media (max-width:600px) {
+    .email-filter {
+        margin: 0;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        gap: 10px;
+    }
+}

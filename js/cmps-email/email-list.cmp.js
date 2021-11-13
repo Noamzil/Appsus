@@ -10,7 +10,7 @@ export default {
         <div v-else>
             <ul class="emails-list">
                 <li v-for="email in emails" :key="email.id" class="email-list-container">
-                    <email-preview @delete="deleteEmail(email.id)" :email="email" @starred="starred"/>
+                    <email-preview @delete="deleteEmail(email.id)" :email="email" @starred="starred" :class="readEmail"/>
                     <router-link :to="'/email/'+email.id" title="Full Details" class="full-details"><i class="fas fa-expand"></i></router-link>
                 </li>
             </ul>
@@ -21,7 +21,7 @@ export default {
     data() {
         return {
             openMail: false
-        }  
+        }
     },
     created() {
         this.emailTime()
@@ -34,9 +34,9 @@ export default {
             this.$emit('delete', emailId)
         },
         emailTime() {
-            setTimeout(()=> {
+            setTimeout(() => {
                 this.openMail = true
-            },100)
+            }, 10)
         },
         starred() {
             this.$emit('starred')
@@ -46,6 +46,9 @@ export default {
         openEmails() {
             if (!this.openMail) return true
             else return false
+        },
+        readEmail(email) {
+            if (email.isRead) return 'readEmail'
         }
     }
 }

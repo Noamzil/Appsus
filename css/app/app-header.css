@@ -12,7 +12,6 @@
 .logo-img {
     height: 100px;
 }
-
 .app-header a {
     text-decoration: none;
     font-weight: bold;
@@ -21,4 +20,24 @@
 }
 .app-header a:hover {
     color: black;
+}
+
+@media (max-width:620px) {
+    .app-header a {
+        font-size: 16px;
+    }
+    .logo-img {
+        height: 80px;
+    }
+}
+@media (max-width:420px) {
+    .app-header {
+        justify-content: space-around;
+    }
+    .app-header a {
+        font-size: 14px;
+    }
+    .logo-img {
+        height: 60px;
+    }
 }

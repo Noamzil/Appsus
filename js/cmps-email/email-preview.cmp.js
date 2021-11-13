@@ -2,11 +2,13 @@ export default {
     props: ['email'],
     name: 'email-preview',
     template: `
-        <section class="email-preview">
+        <section class="email-preview" :class="readEmail">
             <p @click="starEmail" class="star"><i class="far fa-star" :class="isStarred"></i></p>
             <div class="email-sender"  @click="changePreview">   
-               <h1 class="sender-img">  {{firstLetter}}</h1>
-                <h3 class="sender-name" >{{senderName}} </h3>
+                <img v-if="email.senderImg" :src="senderImg" class="sender-img">
+                <h1 v-else class="sender-img">  {{firstLetter}}</h1>
+                <h3 v-if="email.senderName" class="sender-name" >{{email.senderName}} </h3>
+                <h3 v-else class="sender-name" >{{senderName}} </h3>
             </div>
             <div  class="email-display" @click="changePreview">
                 <h3 class="email-subject-list">{{email.subject}} </h3>
@@ -52,6 +54,12 @@ export default {
         isStarred() {
             if (!this.email.isStarred) return 'star-empty'
             else return 'star-full'
+        },
+        senderImg() {
+            return `/img/email-img/senders-img/${this.email.senderName}.jpg`
+        },
+        readEmail() {
+            if (this.email.isRead) return 'readEmail'
         }
     },
     methods: {

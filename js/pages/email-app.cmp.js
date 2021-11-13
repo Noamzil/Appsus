@@ -7,6 +7,7 @@ import emailFilter from '../cmps-email/email-filter.cmp.js'
 export default {
     template: `
         <section v-if="emails" class="email-page">
+        <img src="/img/email-img/hamburger.png" class="hamburger-sign" @click="openFolders">
             <email-filter @filtered="setFilter" @sortDate="sortDate" @sortTitle="sortTitle" />
             <div class="email-page-inner-container">
                 <email-folders-list @type="setType" :unread="unreadEmails" @add="addEmail"/>
@@ -57,6 +58,7 @@ export default {
             else if (this.typeSelected === 'sent') this.emails = this.folders.sent
             else if (this.typeSelected === 'trash') this.emails = utilService.loadFromStorage('trash')
             else if (this.typeSelected === 'starred') this.emails = utilService.loadFromStorage('starred')
+            else if (this.typeSelected === 'draft') this.emails = utilService.loadFromStorage('drafts')
             else this.emails = []
         },
         setType(type) {
@@ -107,6 +109,9 @@ export default {
             var starredEmails = this.emails.filter(email => 
                 email.isStarred)
                 utilService.saveToStorage('starred', starredEmails)
+        },
+        openFolders() {
+            console.log('works');
         }
 
     },

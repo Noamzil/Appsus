@@ -1,4 +1,6 @@
 import newEmail from './new-email.cmp.js'
+import { utilService } from '../services/util-service.js';
+import { emailService } from '../services/email-service.js';
 export default {
     props: ['unread'],
     template: `
@@ -11,8 +13,8 @@ export default {
                 <p @click="changeTxt('sent')"><i class="fas fa-paper-plane"></i> Sent</p>    
                 <p @click="changeTxt('starred')"> <img class="star-img" src="./img/email-img/star.png"> Starred</p>    
                 <p @click="changeTxt('trash')"><i class="fas fa-trash"></i> Trash</p>    
-                <p @click="changeTxt('draft')"><i class="fas fa-sticky-note"></i> Draft</p>
-                <new-email v-if="isNewEmail" @close="newMail" @addEmail="addEmail"/>  
+                <p @click="changeTxt('draft')"><i class="fas fa-sticky-note"></i> Drafts</p>
+                <new-email v-if="isNewEmail" @close="newMail" @addEmail="addEmail" @saveDraft="saveDraft"/>  
                   
         </section>
     `,
@@ -55,6 +57,9 @@ export default {
         addEmail() {
             this.$emit('add')
             // this.isNewEmail = false
+        },
+        saveDraft(newEmail) {
+            emailService.saveDrafts(newEmail )
         }
     }
 }

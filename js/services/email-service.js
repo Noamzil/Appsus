@@ -4,86 +4,113 @@ import { storageService } from './async-storage-service.js';
 var emails = [
     {
         id: 'e101',
-        subject: 'Miss you!',
+        subject: 'Miss you Babe!',
+        body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda quibusdam repellat iure fugiat non qui consequatur optio cumque. Delectus error natus fugit harum. Neque incidunt iusto atque suscipit et eos',
+        isRead: false,
+        sentAt: new Date(2020, 6, 2), 
+        to: 'momo@momo.com',
+        from: 'momo@momo.com',
+        senderName: 'Kim Kardashian',
+        senderImg: true,
+        isStarred: true
+    },
+    {
+        id: 'e102',
+        subject: 'Coming for lunch?',
+        body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda quibusdam repellat iure fugiat non qui consequatur optio cumque. Delectus error natus fugit harum. Neque incidunt iusto atque suscipit et eos',
+        isRead: false,
+        sentAt: new Date(2019, 0, 17),
+        to: 'momo@momo.com',
+        from: 'momo@momo.com',
+        senderName: 'Gordon Ramsay',
+        senderImg: true,
+        isStarred: true
+    },
+    {
+        id: 'e103',
+        subject: 'Vue Data',
+        body: 'Remember! Data is a function that returns an object!    Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda quibusdam repellat iure fugiat non qui consequatur optio cumque. Delectus error natus fugit',
+        isRead: true,
+        sentAt: new Date(2020, 9, 1),
+        to: 'momo@momo.com',
+        from: 'ori@momo.com',
+        senderName: 'Ori Shemla',
+        senderImg: false,
+        isStarred: false
+    },
+    {
+        id: 'e104',
+        subject: 'Karaoke night?',
+        body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda quibusdam repellat iure fugiat non qui consequatur optio cumque. Delectus error natus fugit harum. Neque incidunt iusto atque suscipit et eos',
+        isRead: false,
+        sentAt: new Date(2020, 1, 23),
+        to: 'momo@momo.com',
+        from: 'momo@momo.com',
+        senderName: 'Ed Sheeran',
+        senderImg: true,
+        isStarred: false
+    },
+    {
+        id: 'e105',
+        subject: 'Gotta tell you something! ',
         body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda quibusdam repellat iure fugiat non qui consequatur optio cumque. Delectus error natus fugit harum. Neque incidunt iusto atque suscipit et eos',
         isRead: true,
         sentAt: Date.now(),
         to: 'momo@momo.com',
         from: 'momo@momo.com',
-        isStarred: true
-    },
-    {
-        id: 'e102',
-        subject: 'Hello!',
-        body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda quibusdam repellat iure fugiat non qui consequatur optio cumque. Delectus error natus fugit harum. Neque incidunt iusto atque suscipit et eos',
-        isRead: true,
-        sentAt: new Date(2018, 12, 17),
-        to: 'momo@momo.com',
-        from: 'lala@lolo.com',
-        isStarred: false
-    },
-    {
-        id: 'e103',
-        subject: 'chcah',
-        body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda quibusdam repellat iure fugiat non qui consequatur optio cumque. Delectus error natus fugit harum. Neque incidunt iusto atque suscipit et eos',
-
-        isRead: false,
-        sentAt: new Date(2019, 6, 2),
-        to: 'momo@momo.com',
-        from: 'lala@lolo.com',
-        isStarred: false
-    },
-    {
-        id: 'e104',
-        subject: 'bkabka',
-        body: 'Would love to catch up sometimes',
-        isRead: true,
-        sentAt: new Date(2020, 8, 5),
-        to: 'momo@momo.com',
-        from: 'sksksn@lolo.com',
-        isStarred: false
-    },
-    {
-        id: 'e105',
-        subject: 'lalala',
-        body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda quibusdam repellat iure fugiat non qui consequatur optio cumque. Delectus error natus fugit harum. Neque incidunt iusto atque suscipit et eos',
-
-        isRead: false,
-        sentAt: 1551133930594,
-        to: 'momo@momo.com',
-        from: 'kikiki@lolo.com',
+        senderName: 'Gal Gadot',
+        senderImg: true,
         isStarred: true
     },
     {
         id: 'e106',
-        subject: 'Call me',
+        subject: 'I\'m FREE baby!!',
         body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda quibusdam repellat iure fugiat non qui consequatur optio cumque. Delectus error natus fugit harum. Neque incidunt iusto atque suscipit et eos',
         isRead: false,
-        sentAt: new Date(2020, 4, 10),
+        sentAt: new Date(2020, 8, 5),
         to: 'momo@momo.com',
-        from: 'chahah@lolo.com',
+        from: 'momo@momo.com',
+        senderName: 'Britney Spears',
+        senderImg: true,
         isStarred: false
     },
     {
         id: 'e107',
-        subject: 'Hi there',
+        subject: 'Hi there!',
         body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda quibusdam repellat iure fugiat non qui consequatur optio cumque. Delectus error natus fugit harum. Neque incidunt iusto atque suscipit et eos',
-        isRead: false,
-        sentAt: 1551133930594,
+        isRead: true,
+        sentAt: new Date(2020, 10, 2),
         to: 'momo@momo.com',
-        from: 'lala@lolo.com',
+        from: 'momo@momo.com',
+        senderName: 'Noa Kirel',
+        senderImg: true,
         isStarred: false
     },
     {
         id: 'e108',
-        subject: 'Hi there',
-        body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda quibusdam repellat iure fugiat non qui consequatur optio cumque. Delectus error natus fugit harum. Neque incidunt iusto atque suscipit et eos',
-        isRead: false,
-        sentAt: Date.now(),
+        subject: 'Sprint 3 tasks ',
+        body: 'It\'s so simple and easy! Should take 3 to 6 hours.',
+        isRead: true,
+        sentAt: new Date(2020, 3, 2),
         to: 'momo@momo.com',
-        from: 'lala@lolo.com',
+        from: 'yaron@momo.com',
+        senderName: 'Yaron Biton',
+        senderImg: false,
         isStarred: false
     },
+    {
+        id: 'e109',
+        subject: 'Going out Tonight??',
+        body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda quibusdam repellat iure fugiat non qui consequatur optio cumque. Delectus error natus fugit harum. Neque incidunt iusto atque suscipit et eos',
+        isRead: true,
+        sentAt: new Date(2020, 5, 28),
+        to: 'momo@momo.com',
+        from: 'momo@momo.com',
+        senderName: 'Beyonce',
+        senderImg: true,
+        isStarred: true
+    },
+
 ]
 
 const loggedinUser = {
@@ -101,7 +128,8 @@ var trashEmails = [{
     from: 'kikiki@lolo.com',
     isStarred: false
 }]
-var starredEmails =[]
+var drafts = []
+var starredEmails = []
 utilService.saveToStorage('emails', emails)
 utilService.saveToStorage('trash', trashEmails)
 const KEY = 'emails'
@@ -115,7 +143,8 @@ export const emailService = {
     getEmailType,
     getEmptyMail,
     saveToTrash,
-    starEmail
+    starEmail,
+    saveDrafts
 }
 
 function query(filterBy = {}) {
@@ -157,7 +186,7 @@ function getEmailType(emails) {
 }
 function getEmptyMail() {
     return {
-        id: '',
+        id: utilService.makeId(),
         title: '',
         from: loggedinUser.email,
         to: '',
@@ -175,3 +204,9 @@ function starEmail(email) {
     return storageService.post('starred', email);
 }
 
+function saveDrafts(newEmail) {
+    var draftIdx = drafts.findIndex(draft => draft.id === newEmail.id)
+    if (draftIdx === -1) drafts.push(newEmail)
+    else drafts[draftIdx] = newEmail
+    utilService.saveToStorage('drafts', drafts)
+}

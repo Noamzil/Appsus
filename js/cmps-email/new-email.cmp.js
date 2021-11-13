@@ -24,14 +24,24 @@ export default {
     },
     created() {
         this.newEmail = emailService.getEmptyMail()
+        this.draftInterval()
     },
     methods: {
         close() {
             this.$emit('close')
+            this.saveDraft()
         },
         saveEmail() {
             emailService.save(this.newEmail)
             this.$emit('addEmail')
+        },
+        saveDraft() {
+            this.$emit('saveDraft', this.newEmail)
+        },
+        draftInterval() {
+            setInterval(() => {
+                this.saveDraft()
+            }, 5000);
         }
     }
 }

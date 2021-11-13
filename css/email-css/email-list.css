@@ -7,7 +7,6 @@
 .emails-list li {
     display: flex;
     list-style: none;
-    padding: 10px;
     margin: 0;
     align-items: center;
     width: 100%;
@@ -23,12 +22,12 @@
 }
 
 .sender-img {
-    height: 50px;
-    width: 50px;
+    height: 60px;
+    width: 60px;
     background-color: rgb(255, 167, 167);
     border-radius: 50%;
-    font-size: larger;
-    line-height: 50px;
+    font-size: 30px;
+    line-height: 60px;
 }
 
 .email-preview {
@@ -37,6 +36,7 @@
     align-items: center;
     width: 100%;
     cursor: pointer;
+    padding: 10px;
 }
 
 .email-preview .email-body {
@@ -56,7 +56,6 @@
     gap: 10px;
     cursor: pointer;
     font-size: larger;
-    width: 15%;
     align-items: baseline;
 }
 
@@ -72,7 +71,7 @@
 }
 
 .email-subject-list {
-    width: 100px;
+    width: 200px;
     text-align: start;
 }
 
@@ -83,47 +82,84 @@
 .full-details {
     text-decoration: none;
     color: black;
+    margin-right: 10px;
 }
 
 .star {
     width: 1%;
 }
+
 .star-full {
     font-weight: bold;
 }
+
 .fa-star::before {
     color: #f4cc4e;
     font-size: 20px;
 }
 
+.readEmail {
+    background-color: rgb(231, 231, 231);
+}
+
 @media (max-width:1300px) {
-    .emails-list {
-        background-color: rgb(154, 231, 154);
-    }
     .email-preview .email-body {
         max-width: 350px;
     }
-}
-
-@media (max-width:1000px) {
-    .emails-list {
-        background-color: rgb(255, 198, 250);
-    }
-    .email-preview .email-body {
-        max-width: 270px;
-    }
-    .email-list-container {
-        gap: 0px;
-    }
     .email-sender {
-        width: 100px;
-        font-size: 14px;
+        font-size: 16px;
         display: flex;
         flex-wrap: wrap;
     }
     .sender-img {
+        height: 40px;
+        width: 40px;
+        font-size: 20px;
+        line-height: 40px;
+    }
+    .email-subject-list {
+        font-size: 16px;
+    }
+}
+
+@media (max-width:1150px) {
+    .sender-name {
+        text-align: start;
+    }
+    .email-sender {
+        font-size: 14px;
+    }
+    .email-actions {
+        font-size: 16px;
+    }
+    .email-body {
+        font-size: 14px;
+    }
+
+}
+
+@media (max-width:870px) {
+    .star {
+        width: 4%;
+    }
+}
+@media (max-width:600px) {
+    .sender-name {
+        font-size: 12px;
+    }
+    .sender-img {
         height: 30px;
         width: 30px;
+        font-size: 15px;
         line-height: 30px;
+    }
+    .email-subject-list {
+        font-size: 14px;
+    }
+    .email-date {
+        font-size: 12px;
+    }
+    .email-body {
+        font-size: 11px;
     }
 }
