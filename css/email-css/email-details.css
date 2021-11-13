@@ -1,4 +1,4 @@
-.email-details-container{
+.email-details-container {
     text-align: start;
     max-width: 1000px;
     margin: auto;
@@ -42,8 +42,12 @@
     line-height: 50px;
     text-align: center;
     margin: 0 15px;
-
 }
+
 .sender-details {
     display: flex;
+}
+
+.email-details a {
+    color: black;
 }

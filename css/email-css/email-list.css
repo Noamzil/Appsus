@@ -102,6 +102,10 @@
     background-color: rgb(231, 231, 231);
 }
 
+.download-emails-gif {
+    height: 400px;
+}
+
 @media (max-width:1300px) {
     .email-preview .email-body {
         max-width: 350px;
