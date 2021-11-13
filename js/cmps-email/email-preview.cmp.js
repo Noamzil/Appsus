@@ -56,7 +56,7 @@ export default {
             else return 'star-full'
         },
         senderImg() {
-            return `/img/email-img/senders-img/${this.email.senderName}.jpg`
+            return `./img/email-img/senders-img/${this.email.senderName}.jpg`
         },
         readEmail() {
             if (this.email.isRead) return 'readEmail'
