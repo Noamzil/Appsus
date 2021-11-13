@@ -5,7 +5,7 @@ export default {
     template: `
     <section class="email-list-page">
         <div v-if="openEmails">
-        <img src="img/email-img/mail-download.gif">
+        <img src="../img/email-img/mail-download.gif">
         </div>
         <div v-else>
             <ul class="emails-list">
