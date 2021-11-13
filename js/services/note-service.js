@@ -76,6 +76,22 @@ function _createNotes() {
         ""
       )
     );
+    notes.push(createNote("note-txt", "Get some Sleep!", "", "", ""));
+    notes.push(
+      createNote("note-todos", "", "Learn somthing new", "", [
+        { txt: "Cooking", doneAt: null },
+        { txt: "Playing on guitar", doneAt: null },
+      ])
+    );
+    notes.push(
+      createNote(
+        "note-image",
+        "",
+        "eiffel",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpeg0XF-QNxJIdogTS_y2CXKoXUjzfdncs1g&usqp=CAU"
+      )
+    );
+    notes.push(createNote("note-txt", "Workout 5PM!", "", "", ""));
     utilService.saveToStorage(NOTES_KEY, notes);
   }
   return notes;
@@ -98,7 +114,7 @@ function createNote(
       url,
       todos,
     },
-    style: { backgroundColor: "#F4F0F0" },
+    style: { backgroundColor: `#${utilService.getRandomCol()}` },
   };
   return note;
 }
