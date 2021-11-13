@@ -8,8 +8,10 @@ export default {
     template: `
         <section v-if="emails" class="email-page">
             <email-filter @filtered="setFilter" @sortDate="sortDate" @sortTitle="sortTitle" />
-            <email-folders-list @type="setType" :unread="unreadEmails" @add="addEmail"/>
-            <email-list :emails="emailsToShow" @delete="deleteEmail"/>
+            <div class="email-page-inner-container">
+                <email-folders-list @type="setType" :unread="unreadEmails" @add="addEmail"/>
+                <email-list :emails="emailsToShow" @delete="deleteEmail"/>
+            </div>
         </section>
     `,
     data() {
