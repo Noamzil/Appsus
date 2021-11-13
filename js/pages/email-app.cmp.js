@@ -10,7 +10,7 @@ export default {
             <email-filter @filtered="setFilter" @sortDate="sortDate" @sortTitle="sortTitle" />
             <div class="email-page-inner-container">
                 <email-folders-list @type="setType" :unread="unreadEmails" @add="addEmail"/>
-                <email-list :emails="emailsToShow" @delete="deleteEmail"/>
+                <email-list :emails="emailsToShow" @delete="deleteEmail" @starred="starredEmails"/>
             </div>
         </section>
     `,
@@ -23,9 +23,6 @@ export default {
             },
             folders: null,
             typeSelected: 'inbox',
-            sortDateSTB: true,
-            sortTitleAZ: true,
-
         }
     },
     components: {
@@ -37,6 +34,7 @@ export default {
         this.loadEmails()
         this.setFolders()
         this.emailsByType()
+        this.starredEmails()
     },
     methods: {
         loadEmails() {
@@ -57,6 +55,8 @@ export default {
         emailsByType() {
             if (this.typeSelected === 'inbox') this.emails = this.folders.inbox
             else if (this.typeSelected === 'sent') this.emails = this.folders.sent
+            else if (this.typeSelected === 'trash') this.emails = utilService.loadFromStorage('trash')
+            else if (this.typeSelected === 'starred') this.emails = utilService.loadFromStorage('starred')
             else this.emails = []
         },
         setType(type) {
@@ -64,6 +64,8 @@ export default {
             this.emailsByType()
         },
         deleteEmail(id) {
+            emailService.getById(id)
+                .then(email => emailService.saveToTrash(email))
             emailService.remove(id)
                 .then(() => {
                     this.emails = this.emails.filter(email => email.id !== id);
@@ -92,14 +94,19 @@ export default {
         sortTitle() {
             if (this.sortTitleAZ) {
                 this.emails.sort((a, b) => {
-                    return (a.subject.toLowerCase()>b.subject.toLowerCase()) ? 1 : -1
+                    return (a.subject.toLowerCase() > b.subject.toLowerCase()) ? 1 : -1
                 })
             } else {
                 this.emails.sort((a, b) => {
-                    return (a.subject.toLowerCase()<b.subject.toLowerCase()) ? 1 : -1
+                    return (a.subject.toLowerCase() < b.subject.toLowerCase()) ? 1 : -1
                 })
             }
             this.sortTitleAZ = !this.sortTitleAZ
+        },
+        starredEmails() {
+            var starredEmails = this.emails.filter(email => 
+                email.isStarred)
+                utilService.saveToStorage('starred', starredEmails)
         }
 
     },

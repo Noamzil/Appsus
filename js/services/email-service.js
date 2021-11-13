@@ -10,7 +10,7 @@ var emails = [
         sentAt: Date.now(),
         to: 'momo@momo.com',
         from: 'momo@momo.com',
-        isSelected: false
+        isStarred: true
     },
     {
         id: 'e102',
@@ -20,7 +20,7 @@ var emails = [
         sentAt: new Date(2018, 12, 17),
         to: 'momo@momo.com',
         from: 'lala@lolo.com',
-        isSelected: false
+        isStarred: false
     },
     {
         id: 'e103',
@@ -31,7 +31,7 @@ var emails = [
         sentAt: new Date(2019, 6, 2),
         to: 'momo@momo.com',
         from: 'lala@lolo.com',
-        isSelected: false
+        isStarred: false
     },
     {
         id: 'e104',
@@ -41,7 +41,7 @@ var emails = [
         sentAt: new Date(2020, 8, 5),
         to: 'momo@momo.com',
         from: 'sksksn@lolo.com',
-        isSelected: false
+        isStarred: false
     },
     {
         id: 'e105',
@@ -52,7 +52,7 @@ var emails = [
         sentAt: 1551133930594,
         to: 'momo@momo.com',
         from: 'kikiki@lolo.com',
-        isSelected: false
+        isStarred: true
     },
     {
         id: 'e106',
@@ -62,7 +62,7 @@ var emails = [
         sentAt: new Date(2020, 4, 10),
         to: 'momo@momo.com',
         from: 'chahah@lolo.com',
-        isSelected: false
+        isStarred: false
     },
     {
         id: 'e107',
@@ -72,7 +72,7 @@ var emails = [
         sentAt: 1551133930594,
         to: 'momo@momo.com',
         from: 'lala@lolo.com',
-        isSelected: false
+        isStarred: false
     },
     {
         id: 'e108',
@@ -82,7 +82,7 @@ var emails = [
         sentAt: Date.now(),
         to: 'momo@momo.com',
         from: 'lala@lolo.com',
-        isSelected: false
+        isStarred: false
     },
 ]
 
@@ -90,8 +90,20 @@ const loggedinUser = {
     email: 'momo@momo.com',
     fullname: 'Mahatma Appsus'
 }
+var trashEmails = [{
+    id: 'e105',
+    subject: 'lalala',
+    body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda quibusdam repellat iure fugiat non qui consequatur optio cumque. Delectus error natus fugit harum. Neque incidunt iusto atque suscipit et eos',
 
+    isRead: false,
+    sentAt: 1551133930594,
+    to: 'momo@momo.com',
+    from: 'kikiki@lolo.com',
+    isStarred: false
+}]
+var starredEmails =[]
 utilService.saveToStorage('emails', emails)
+utilService.saveToStorage('trash', trashEmails)
 const KEY = 'emails'
 
 export const emailService = {
@@ -101,7 +113,9 @@ export const emailService = {
     getById,
     getNextemailId,
     getEmailType,
-    getEmptyMail
+    getEmptyMail,
+    saveToTrash,
+    starEmail
 }
 
 function query(filterBy = {}) {
@@ -137,17 +151,27 @@ function getEmailType(emails) {
     var sent = emails.filter(email => {
         return email.from === loggedinUser.email
     })
-    return { inbox, sent }
+    var trash = utilService.loadFromStorage('trash')
+    return { inbox, sent, trash }
+
 }
 function getEmptyMail() {
     return {
         id: '',
         title: '',
         from: loggedinUser.email,
-        to:'',
+        to: '',
         subject: '',
         body: '',
         sentAt: '',
-        isSelected: false
+        isStarred: false
     };
 }
+
+function saveToTrash(email) {
+    return storageService.post('trash', email);
+}
+function starEmail(email) {
+    return storageService.post('starred', email);
+}
+

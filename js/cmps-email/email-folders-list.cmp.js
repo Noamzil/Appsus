@@ -9,6 +9,7 @@ export default {
             </div>
                 <p @click="changeTxt('inbox')"> <i class="fas fa-inbox"></i> Inbox ({{unread}})</p>
                 <p @click="changeTxt('sent')"><i class="fas fa-paper-plane"></i> Sent</p>    
+                <p @click="changeTxt('starred')"> <img class="star-img" src="./img/email-img/star.png"> Starred</p>    
                 <p @click="changeTxt('trash')"><i class="fas fa-trash"></i> Trash</p>    
                 <p @click="changeTxt('draft')"><i class="fas fa-sticky-note"></i> Draft</p>
                 <new-email v-if="isNewEmail" @close="newMail" @addEmail="addEmail"/>  
@@ -32,6 +33,9 @@ export default {
                     break;
                 case 'sent':
                     this.type = 'sent';
+                    break;
+                case `starred`:
+                    this.type = `starred`;
                     break;
                 case `trash`:
                     this.type = `trash`;
