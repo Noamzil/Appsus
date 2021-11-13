@@ -108,7 +108,8 @@ export default {
     },
     duplicateNote(id) {
       noteService.getById(id).then((note) => {
-        noteService.addFirst(note).then(() => {
+        note.id = storageService.makeId();
+        noteService.addLast(note).then((note) => {
           this.loadNotes();
         });
       });

@@ -98,7 +98,7 @@ function createNote(
       url,
       todos,
     },
-    style: { backgroundColor: "#A39E9E" },
+    style: { backgroundColor: "#F4F0F0" },
   };
   return note;
 }

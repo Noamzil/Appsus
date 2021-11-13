@@ -1,12 +1,11 @@
-a {
-  color: black;
-}
-
 .notes-list {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   gap: 20px;
+  margin-top: 80px;
+  padding-left: 40px;
 }
 
 .notes-list li {
@@ -17,85 +16,38 @@ a {
   padding: 0;
 }
 
-.fas {
-  width: 30px;
-  height: 20px;
-}
-
-.note-input {
-  width: 1000px;
-  height: 40px;
-}
-
-.note-input-search {
-  position: relative;
-  top: -100px;
-  right: 600px;
-  padding: 5px;
-  width: 250px;
-}
-
-.input-icons {
-  font-size: 1.5rem;
-}
-
-.input-icons i {
-  margin-right: 20px;
-}
-
-i:hover {
-  cursor: pointer;
-}
-
 .note-description-container {
-  margin: 15px;
+  margin: auto;
+  max-width: 800px;
 }
 
-.font-color {
-  z-index: 10;
-  cursor: pointer;
-  width: 30px;
-  height: 20px;
-  opacity: 0;
-  position: absolute;
-  left: 0;
-  top: 0;
+.note-description-container li {
+  list-style: none;
 }
 
-.fa-palette {
-  margin-left: auto;
-  margin-right: 0;
-}
-
-.font-col-container {
-  position: relative;
-  display: inline;
-}
-
-.note-todo ul, li, p, i {
-  background: transparent;
+.note-page {
+  margin-top: 20px;
+  margin-bottom: 40px;
 }
 
 .note-container {
+  max-width: 400px;
+  min-width: 200px;
   padding: 15px;
   border-radius: 5px;
   box-shadow: 0 0 8px grey;
 }
 
-.input-container {
-  margin-top: 50px;
+.note-container h4 {
+  margin-bottom: 20px;
 }
 
-.filetr-container {
-  display: flex;
-  align-items: center;
-  justify-content: end;
-  margin-right: 50px;
+.note-container h3 {
+  margin-bottom: 20px;
 }
 
-.input-container {
-  margin: auto;
-  justify-content: center;
+.note-img img {
+  width: 300px;
 }
 
 /* HELPERS */
@@ -104,6 +56,28 @@ i:hover {
   color: yellow;
 }
 
-.active{
+.active {
   opacity: 0.5;
+}
+
+/* MEDIA */
+
+@media (max-width: 500px) {
+  .filter-container {
+    position: relative;
+    float: none;
+    width: 100%;
+    display: flow-root;
+    top: 30px;
+  }
+
+  .note-input-search {
+    float: none;
+    margin: 0;
+  }
+
+  .notes-list {
+    padding-left: 20 px;
+    padding-right: 20 px;
+  }
 }

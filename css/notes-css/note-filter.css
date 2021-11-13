@@ -1,0 +1,13 @@
+  
+.note-input-search {
+    padding: 5px;
+    width: 250px;
+    margin-left: 40px;
+    float: left;
+  }
+
+  .filter-container {
+    display: block;
+    float: right;
+    margin-right: 40px;
+  }  
