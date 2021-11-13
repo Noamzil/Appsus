@@ -3,8 +3,9 @@ export default {
      <div class="book-filter">
             <label>Search</label>
             <input @input="filter" v-model="filterBy.title" type="text" placeholder="Search...">
-            <label>Price:</label>
-            <input @input="filter" v-model="filterBy.price" type="range" min="0" max="500" title="value">
+            <label>Max price:</label>
+            <input @input="filter" v-model="filterBy.price" type="range" min="0" max="250" title="value">
+            <span> {{filterBy.price}}</span>
         </div>
     `,
     data() {

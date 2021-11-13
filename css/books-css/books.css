@@ -1,117 +1,140 @@
 /* FILTER */
 .book-filter {
-    padding: 15px;
+  padding: 15px;
 }
 
 /* BOOKS */
 .book-list {
-    margin: 0;
-    padding: 15px;
-    list-style: none;
-    padding: 10;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    justify-content: center;
+  margin: 0;
+  padding: 15px;
+  list-style: none;
+  padding: 10;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
 }
 
 .book-list-container {
-    border: black solid 1px;
-    height: 300px;
-    width: 200px;
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-    align-items: center;
-    text-align: center;
-    justify-content: space-between;
-    font-weight: bold;
-    font-size: large;
+  border: black solid 1px;
+  height: 300px;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  align-items: center;
+  text-align: center;
+  justify-content: space-between;
+  font-weight: bold;
+  font-size: large;
 }
 
 .book-list-img {
-    height: 170px;
+  height: 170px;
 }
 
 /* ADD BOOK */
 .add-book {
-    padding: 10px;
+  padding: 10px;
 }
 
 /* BOOK DETAILS */
 .book-details {
-    padding: 15px;
-    text-align: center;
-    height: 90vh;
+  padding: 15px;
+  text-align: center;
 }
 
 .category-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    gap: 5px;
-    justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 5px;
+  justify-content: center;
 }
 
 .book-img {
-    height: 250px;
+  height: 250px;
 }
 
 .Red {
-    color: red;
-    font-weight: bold;
+  color: red;
+  font-weight: bold;
 }
 
 .Green {
-    color: green;
-    font-weight: bold;
+  color: green;
+  font-weight: bold;
 }
 
 .price-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .sale-img {
-    height: 70px;
-    transform: rotate(10deg)
+  height: 70px;
+  transform: rotate(10deg);
+}
+
+/* BOOK REVIEWS */
+
+.reviews-details {
+  margin-bottom: 60px;
+  margin-top: 40px;
+}
+
+.reviews-details li {
+  list-style: none;
+}
+
+.reviews-details p {
+  margin: 20px;
+}
+
+.reviews-details button {
+  margin-left: 80px;
+}
+
+.review-add input {
+  margin: 10px;
 }
 
 /* ADD REVIEW */
 
 .add-review-container {
-    width: 400px;
-    padding: 20px;
+  width: 400px;
+  padding: 20px;
 }
 
 .add-review {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-weight: bolder;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: bolder;
 }
 
-.add-review .review-area, .date, .full-name {
-    width: 250px;
-    height: 25px;
+.add-review .review-area,
+.date,
+.full-name {
+  width: 250px;
+  height: 25px;
 }
 
 .add-review .rate {
-    width: 60px;
+  width: 60px;
 }
 
 .add-review .review-area {
-    height: 100px;
+  height: 100px;
 }
 
 /* FOOTER */
 
 .app-footer {
-    height: 50px;
-    text-align: center;
-    padding: 15px;
+  height: 50px;
+  text-align: center;
+  padding: 15px;
 }
-
