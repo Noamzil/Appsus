@@ -7,7 +7,7 @@ import emailFilter from '../cmps-email/email-filter.cmp.js'
 export default {
     template: `
         <section v-if="emails" class="email-page">
-        <img src="../img/email-img/hamburger.png" class="hamburger-sign" @click="openFolders">
+        <img src="./img/email-img/hamburger.png" class="hamburger-sign" @click="openFolders">
             <email-filter @filtered="setFilter" @sortDate="sortDate" @sortTitle="sortTitle" />
             <div class="email-page-inner-container">
                 <email-folders-list @type="setType" :unread="unreadEmails" @add="addEmail"/>
