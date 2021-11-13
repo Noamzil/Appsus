@@ -37,3 +37,24 @@
 .pages-icons .home-book:hover {
     color: #df5347;
 }
+
+@media (max-width:1000px) {
+    .pages-icons a {
+        font-size: 70px;
+    }
+    .pages-icons {
+        gap: 100px;
+    }
+}
+@media (max-width:500px) {
+    .pages-icons a {
+        font-size: 80px;
+    }
+    .pages-icons {
+        gap: 30px;
+        flex-wrap: wrap;
+        flex-direction: column;
+        margin-top: 50px;
+        margin-right: 80px;
+    }
+}
