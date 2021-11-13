@@ -36,7 +36,7 @@ export default {
         emailTime() {
             setTimeout(() => {
                 this.openMail = true
-            }, 10)
+            }, 1000)
         },
         starred() {
             this.$emit('starred')
